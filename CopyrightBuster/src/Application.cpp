@@ -2,12 +2,29 @@
 #include <chrono>
 #include <string>
 #include "Timer.h"
+#include "FileProcessing.h"
 
 void Test(unsigned int x);
 
+using namespace std::string_literals;
+
 int main()
 {
-	Test(1000);
+	std::vector<std::string> vec;
+	vec.reserve(2);
+
+	vec.emplace_back("raw"s);
+	vec.emplace_back("clip"s);
+
+	for (int i = 0; i < 2; i++)
+	{
+		Timer test;
+		convertToTxt("C:/Users/Lasze/Downloads/4_IJHMT_2017.pdf"s, "-"s + vec[i], "./Files/"s + vec[i] + "/4_IJHMT_2017.txt"s);
+		convertToTxt("C:/Users/Lasze/Downloads/6_HMT_2016.pdf"s, "-"s + vec[i], "./Files/"s + vec[i] + "/6_HMT_2016.txt"s);
+		convertToTxt("C:/Users/Lasze/Downloads/7_ETFS__2015.pdf"s, "-"s + vec[i], "./Files/"s + vec[i] + "/7_ETFS__2015.txt"s);
+	}
+
+	//Test(1000);
 
 	std::cin.get();
 }

@@ -115,17 +115,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\FileProcessing.cpp" />
     <ClCompile Include="src\Raport.cpp" />
     <ClCompile Include="src\Application.cpp" />
     <ClCompile Include="src\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\FileProcessing.h" />
     <ClInclude Include="src\Raport.h" />
     <ClInclude Include="src\Timer.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Files\File2.txt" />
     <Text Include="Files\Files.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pdftotext.exe" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

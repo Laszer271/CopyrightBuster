@@ -24,6 +24,9 @@
     <ClCompile Include="src\Timer.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
+    <ClCompile Include="src\FileProcessing.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Raport.h">
@@ -32,9 +35,15 @@
     <ClInclude Include="src\Timer.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
+    <ClInclude Include="src\FileProcessing.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Files\Files.txt" />
     <Text Include="Files\File2.txt" />
+    <Text Include="Files\Files.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pdftotext.exe" />
   </ItemGroup>
 </Project>

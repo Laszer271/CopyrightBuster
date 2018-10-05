@@ -1,0 +1,902 @@
+International Journal of Heat and Mass Transfer 107 (2017) 925­933
+Contents lists available at ScienceDirect
+International Journal of Heat and Mass Transfer
+journal homepage: www.elsevier.com/locate/ijhmt
+
+Trefftz function-based thermal solution of inverse problem in unsteadystate flow boiling heat transfer in a minichannel
+Beata Maciejewska , Magdalena Piasecka
+Kielce University of Technology, Al. 1000-lecia P.P. 7, PL-25-314 Kielce, Poland
+
+article info
+Article history: Received 8 July 2016 Received in revised form 31 October 2016 Accepted 1 November 2016 Available online 9 November 2016
+Keywords: Flow boiling Minichannel Unsteady-state heat transfer Inverse problem Trefftz functions
+
+abstract
+The paper shows the results for flow boiling heat transfer in a 1.7 mm deep minichannel vertically oriented with FC-72 Fluorinert as a working fluid. The heated wall of the minichannel was formed with a thin foil. Thermocouples mounted at 18 points monitored the outer foil surface temperature. All experimental parameters were controlled using data acquisition stations. The measurements were performed at 0.01 s intervals. The observations of the flow structures were carried out concurrently on the internal surface of the foil contacting the fluid. The aim of the numerical calculations was to determine the heat transfer coefficient on the contact surface between the heated foil and FC-72. The heat transfer coefficient was calculated with the use of the Robin boundary condition. To do that, the foil and fluid temperatures and foil temperature gradient had to be known. The foil temperature was found by solving an unsteadystate two-dimensional inverse boundary problem with the use of the Trefftz method in time-space subdomains. A linear combination of Trefftz functions was used to approximate the foil temperature. The unknown coefficients of the Trefftz function linear combination were determined by minimizing the functional. Error propagation in time and mean relative differences determined between the measured and computed heated foil temperatures were presented.
+Ó 2016 Elsevier Ltd. All rights reserved.
+
+1. Introduction
+Minimizing the size of heat exchangers while maximizing their thermal efficiency, lifespan, run time and cost is a challenge for the designers of modern devices. One of the efficient cooling methods is the use of phase change heat transfer processes, such as flow boiling which has gained growing interest in thermal science for providing very high heat transfer coefficients compared to those from single phase convection. However, flow boiling heat transfer is characterized by unstable flow phenomena and various heat transfer regimes, which being dependent on heat flux, mass flow rate, pressure, channel wall roughness and properties of the working fluid, add to the complexity of the process.
+Numerous research studies have been devoted to calculating flow boiling heat transfer in mini spaces but the results of these calculations need to be compared to experimental data. Experiment is critical especially in complicated heat transfer systems, with bubbles larger than the channel size, where predictions concerning heat transfer are limited. A brief review of similar issues reported by other researchers is presented below. Experiments
+ Corresponding author.
+E-mail address: beatam@tu.kielce.pl (B. Maciejewska).
+http://dx.doi.org/10.1016/j.ijheatmasstransfer.2016.11.003 0017-9310/Ó 2016 Elsevier Ltd. All rights reserved.
+
+concerning time-dependent flow parameters were conducted by [1­7]. The enhancement of heat transfer due to the Taylor bubble train flow presented in comparison with thermally developing single-phase flows was studied by [1]. The experiments presented in [2] were carried out to evaluate the transient heat transfer characteristics of a minichannel heat sink under high heat flux density. A method for the measurement of transient fluid temperature in high-pressure systems was developed by the authors of [3]. In [4], the dynamics of pressure and temperature fluctuations occurring in flow boiling in a minichannel was investigated. In [5], the author presented a mathematical model of a transient heat transfer process for non-contacting face seals described by the fractional heat conduction equation. In [6], unsteady-state flow boiling in a rectangular minichannel was described, with a flow stability criterion depending on two controlled parameters: heat flux and massflow rate. The authors of [7] reported periodic flow boiling investigations, including oscillations of channel wall temperature, local heat transfer coefficients and inlet and outlet pressure. A full analysis of the temperature measurements and pressure data obtained during the growth of a vapour bubble in the microchannel was provided.
+Identification of a heat transfer coefficient is one of inverse heat conduction problems [8­10]. The method proposed in 1926 by Trefftz [11] has been found to be especially suitable for solving
+
+926
+
+B. Maciejewska, M. Piasecka / International Journal of Heat and Mass Transfer 107 (2017) 925­933
+
+Nomenclature
+
+A
+
+surface area, m2
+
+amijk cp Hk I
+
+coefficient of the linear combination specific heat of the heated foil, J/(kg K) functional current supplied to the heated foil, A
+
+I
+
+number of subdomains in the x-axis direction
+
+J
+
+number of subdomains in the y-axis direction
+
+K
+
+number of time intervals in numerical calculations
+
+KAll
+
+number of recorded time intervals during the experi-
+
+ment
+
+L
+
+length, m
+
+M
+
+number of Trefftz functions
+
+P
+
+number of measurements
+
+p
+
+pressure, N/m2
+
+Qm
+
+mass flow rate, kg/s
+
+qloss
+
+loss of heat to the surroundings, W/m2
+
+qV
+
+volumetric heat flux, W/m3
+
+T
+
+temperature, K
+
+t
+
+time, s
+
+u(x, y, t) particular solution of the differential equation
+vm(x, y, t) Trefftz functions
+
+x, y
+
+spatial coordinates, m
+
+Greek symbols
+
+a
+
+heat transfer coefficient, W/(m2 K)
+
+DU
+
+drop in voltage along the foil, V
+
+d
+
+thickness of the heated foil, m
+
+j
+
+thermal diffusivity coefficient, m2/s
+
+k
+
+thermal conductivity of the heated foil, W/(m K)
+
+q
+
+density of the heated foil, kg/m3
+
+X
+
+time-space domain
+
+Subscripts
+
+f
+
+fluid
+
+in
+
+minichannel inlet
+
+l
+
+liquid
+
+out
+
+minichannel outlet
+
+p
+
+measurement point
+
+sat
+
+saturation
+
+inverse problems. It employs a linear combination of functions that satisfy differential equations identically, Trefftz functions, for approximating the unknown solution of the differential equations. All you have to do is to adjust the approximate value to the boundary conditions and, in nonstationary problems, also to the initial conditions. Details about the Trefftz method can be found in [12­ 15]. The Trefftz functions-based method can be used to solve both stationary [16,17] and nonstationary problems [18­22] and for constructing base functions in FEM [23­29]. Spatial-temporal base functions are presented in [23,26].
+Experimental data were the basis for the analysis of steadystate flow boiling heat transfer in minichannels performed by the authors of this paper in their previous works [28,30­34]. Currently, their research interest is focused on unsteady-state flow boiling heat transfer in rectangular minichannels.
+2. The experimental database
+2.1. Experimental stand
+The essential part of the experimental stand - the testing module with a minichannel, flow loop and data and image acquisition system, are presented in Fig. 1. The test module is composed of two 16 mm wide and 180 mm long minichannels (1). The PTFE spacer (3) is used to achieve a specific dimension of the minichannel depth (1.7 mm). A thin foil (4) provides the heated wall for FC72 Fluorinert flowing in the minichannels. The foil, made of Haynes-230 alloy, has a guaranteed precision thickness of approximately 0.1 mm. In the main minichannel, the foil temperature is measured with K-type thermocouples (T1­T18). Two additional thermocouples (T19, T20) were installed at the inlet and outlet of the minichannels. This contact temperature measurement method is used to obtain the basic data of the heated minichannel wall for calculations in one minichannel while in the other minichannel foil temperature is monitored by an infrared camera (8). Infrared thermography as a contactless temperature measurement method is used for the comparison of temperature measurements from thermocouples, at selected time intervals. The other side of the heated foil is observed through a glass pane (2) to visualize the two-phase flow patterns in minichannels using high-speed camera
+
+(9) and the lighting system. The data acquisition system is made up of two data acquisition stations (11, 12), a computer (13) and appropriate software. A mass flow meter (18) is used to control the fluid flow in the flow loop. Fluid inlet and outlet pressure are also measured due to pressure converters. The supply and control system contains an inverter welder, a shunt, an ammeter and a voltmeter.
+2.2. Experimental methodology and uncertainties
+Each experimental series with the laminar flow of FC-72 in minichannels lasted approximately two minutes. The temperature of the foil surface was monitored continuously at 18 points by Ktype thermocouples placed at the outer surface along the central, axially symmetric axis of the main minichannel. The signals from the thermocouples controlling foil temperature at the selected points (marked as T1 . . . T18 in Fig. 1a) and the two thermocouples installed at the inlet and outlet of the minichannels (marked as T19 and T20) were recorded using a DaqLab 2005 data acquisition station (11). Simultaneously, two-phase flow structures in the minichannel were observed using a JAI Coaxpress high-speed camera (9) and foil temperature was monitored by a FLIR E60 infrared camera (8). The pressure of the fluid at the minichannel inlet (pin) and outlet (pout), the current supplied to the foil (I), the voltage drop across the foil (DU) and mass flow were also recorded using an MCC SC-1608G data acquisition device with analog signal conditioning (12). The measurements were carried out with a frequency of 0.01 s. All parameters recorded during the experiment and the apparatus used for measurements (with accuracy) are listed in Table 1.
+3. Determining heat transfer coefficient
+Two-dimensional nonstationary heat flow was assumed. The temperature variation along the minichannel width was not taken into account. Two dimensions were accounted for: dimension x along the flow direction and dimension y perpendicular to the flow direction, related to the thickness of the heated foil.
+The Robin boundary condition was used to calculate the local values of the heat transfer coefficient:
+
+B. Maciejewska, M. Piasecka / International Journal of Heat and Mass Transfer 107 (2017) 925­933
+
+927
+
+Table 1 Data recorded during the experiment and the apparatus used for measurements.
+
+Parameter
+
+Apparatus used for measurements and calculations (with accuracy)
+
+Mass flow rate
+Pressure at the inlet Pressure at the outlet Fluid temperature at the
+inlet/outet Foil temperature (in 18
+points)
+Current supplied to the foil
+Voltage drop across the foil
+
+d Coriolis mass flow meter, Proline Promass A100 mass flowmeter, (Endress + Hauser), accuracy of ±0.05% of reading, max ±6.1Á10À6 kg/s d pressure transducer, PMP71 Cerabar S, (Endress + Hauser), accuracy of ±0.05% of the full scale, approx. ±5Á10À5 bar d K type thermocouples (CZAKI ThermoProduct) d DaqLab 2005 data acquisition station with DBK83 card and DBK84 card (IOTech/ Measurement Computing), d TC accuracy of 0.9 K at measurement temperature up to 300 °C d A multimeter (Brymer), accuracy class of 0.08%, for max. range of 50 V - error of 0.04 ± 0.01 V d MCC SC-1608G data acquisition device (Measurement Computing) d A shunt (400 A, 60 mV) cooperating with a minivoltmeter, accuracy class of 0.5%, for max. range of 400 A, error of 2 A, d V-629 digital meter (Meratronik), accuracy class of 0.1% - the absolute error of current measurement approx. 2 A, d MCC SC-1608G data acquisition device (Measurement Computing)
+
+Parameter/image
+
+Apparatus used for measurements (not used in calculations)
+
+Foil temperature (temperature field)
+Two-phase flow structures in the minichannel
+
+d FLIR E60 infrared camera d JAI Coaxpress high-speed camera
+
+Fig. 1. The experimental stand: (a­c) the schematic diagrams of: the main elements (a), the flow loop and the data and image acquisition system (b), the testing module with minichannels (c); (d,e) the view (photo) of: the experimental stand (d), the testing module (e); 1 - minichannel, 2 - glass pane, 3 - PTFE spacer, 4 - heated foil, 5 - front cover, 6 - channel body, 7 - copper electrode, 8 - infrared camera, 9 - high speed camera, 10 - lighting system (high power LEDs), 11 - DaqLab 2005 data acquisition station, 12 - MCC SC-1608G data acquisition station, 13 -pc computer, 14 - rotary pump; 15 - compensating tank/pressure regulator; 16 - tube-type heat exchanger, 17 - filter, 18 - mass flow meter, 19 - deaerator.
+
+The solution to the inverse heat conduction problem in the heated foil provided foil temperature T. The variation in foil temperature over time is described by the non-homogeneous heat equation
+
+@2T @x2
+
+þ
+
+@2T @y2
+
+À
+
+q cp
+k
+
+@T @t
+
+¼
+
+À qV ðtÞ ; k
+
+ðx; y; tÞ 2 X;
+
+ð2Þ
+
+and the initial and the boundary conditions (Fig. 2):
+
+Tðx; y; 0Þ ¼ T0ðx; yÞ;
+
+ð3Þ
+
+@T @x
+
+ð0;
+
+y;
+
+tÞ
+
+¼
+
+0;
+
+ð4Þ
+
+aðx;
+
+tÞ
+
+¼
+
+Àk
+
+@T @y
+
+ðx;
+
+d;
+
+tÞ
+
+Tðx; d; tÞ À Tf ðx;
+
+tÞ
+
+;
+
+ð1Þ
+
+&
+
+where Tf ðx; tÞ ¼
+
+Tlðx; tÞ; Tsatðx; tÞ;
+
+if if
+
+Tðx; d; tÞ Tðx; d; tÞ
+
+< P
+
+Tsatðx; tÞ Tsatðx; tÞ
+
+,
+
+Tf
+
+­
+
+fluid
+
+tem-
+
+perature, Tl ­ liquid temperature calculated in the subcooled boiling
+
+region from the assumption of the linear distribution of the liquid
+
+temperature along the minichannel, Tsat ­ saturation temperature
+
+determined in the saturated boiling region from the assumption
+
+of the linear distribution of the fluid pressure along the minichan-
+
+nel, d ­ thickness of the heated foil, k ­ thermal conductivity of
+
+the foil, T ­ foil temperature.
+
+Fig. 2. Boundary conditions.
+
+928
+
+B. Maciejewska, M. Piasecka / International Journal of Heat and Mass Transfer 107 (2017) 925­933
+
+@T @x
+
+ðL;
+
+y;
+
+tÞ
+
+¼
+
+0;
+
+ð5Þ
+
+k
+
+@T @y
+
+ðx;
+
+0;
+
+tÞ
+
+¼
+
+qlossðtÞ;
+
+ð6Þ
+
+Tðxp; 0; tkall Þ ¼ Tpðtkall Þ for p ¼ 1; 2; . . . ; P;
+
+kall ¼ 1; 2; . . . ; KAll;
+
+ð7Þ
+
+where X ¼ fðx; y; tÞ 2 R3 : 0 < x < L; 0 < y < d; 0 < t < þ1g; L ­ length of heated foil, q ­ density of the heated foil, cp ­ specific heat of the heated foil, qloss ­ heat losses to the surroundings, estimated as in [34], Tp ­ foil temperature measured by thermocouples, P ­ the number of measurements, KAll ­ number of recorded time intervals during the experiment, k; d ­ defined as for Eq. (1). The volumetric heat flux qV was calculated according to the formula:
+
+qV
+
+ðtÞ
+
+¼
+
+IðtÞDUðtÞ Ad
+
+;
+
+ð8Þ
+
+where I ­ current supplied to the heated foil, DU ­ drop in voltage along the length of the heated foil, A ­ surface area of the heated foil in contact with the fluid, d ­ defined as for Eq. (1).
+The inverse problem Eqs. (2)­(7) was solved in the heated foil temperature variation domain divided into time-space subdomains. The approximate solution in each time-space subdomain, Xij k ¼ hxi; xiþ1i Â hyj; yjþ1i Â htkÀ1; tki for i = 1, 2, ..., I; j = 1, 2, ..., J and k ¼ 1; 2; . . . ; K had the form
+
+X M
+
+Tijkðx; y; tÞ ¼ uðx; y; tÞ þ amijkvmðx; y; tÞ;
+
+ð9Þ
+
+m¼1
+
+where u(x, y, t) ­ the particular solution of the Eq. (2), vm(x, y, t) ­
+the Trefftz functions which strictly satisfy the homogeneous heat equation, amijk ­ the linear combination coefficients, I ­ the number of subdomains in the x-axis direction, J ­ the number of subdomains in the y-axis direction, M ­ the number of Trefftz functions, K ­ number of time intervals in numerical calculations.
+Unknown coefficients amijk, in each subintervals htkÀ1; tki for fixed k, were calculated by minimizing the functional:
+
+j Hk
+
+¼
+
+X IÀ1 XJ Z yjþ1 d3 i¼1 j¼1 yj
+
+Z tk
+tkÀ1
+
+ðTijkðxiþ1; y; tÞ À T ðiþ1Þjkðxiþ1; y; tÞÞ2dtdy
+
+j þ
+
+X IÀ1 XJ Z yjþ1
+
+d i¼1 j¼1
+
+yj
+
+Z tk
+tkÀ1
+
+ @ T ijk @x
+
+ðxiþ1;
+
+y;
+
+tÞ
+
+À
+
+@T ðiþ1Þjk @x
+
+ðxiþ1
+
+;
+
+y;
+
+2 tÞ
+
+dtdy
+
+j XI X JÀ1 Z xiþ1
+þ d3 i¼1 j¼1 xi
+
+Z tk
+tkÀ1
+
+ðTijkðx; yjþ1; tÞ À Ti ðjþ1Þkðx; yjþ1; tÞÞ2dtdx
+
+j þ
+
+XI X JÀ1 Z xiþ1
+
+d i¼1 j¼1
+
+xi
+
+Z tk
+tkÀ1
+
+ @ T ijk @y
+
+ðx;
+
+yjþ1 ;
+
+tÞ
+
+À
+
+@
+
+T iðjþ1Þk @y
+
+ðx;
+
+yjþ1
+
+;
+
+2 tÞ
+
+dtdx
+
+1 XI XJ Z xiþ1 þ d2 i¼1 j¼1 xi
+
+Z yjþ1
+yj
+
+ðTijkðx; y; tkÀ1Þ À TijðkÀ1Þðx; y; tkÀ1ÞÞ2dydx
+
+j XI Z xiþ1
+þ
+
+d i¼1
+
+xi
+
+Z tk
+tkÀ1
+
+ @ T i1k @y
+
+ðx;
+
+y1
+
+;
+
+tÞ
+
+À
+
+qloss ðt Þ2 k
+
+dtdx
+
+j þ
+
+XJ Z yjþ1 d j¼1 yj
+
+Z tk
+tkÀ1
+
+ @ T 1jk @x
+
+ðx1
+
+;
+
+y;
+
+2 tÞ
+
+dtdy
+
+j þ
+
+XJ Z yjþ1
+
+d j¼1
+
+yj
+
+Z tk
+tkÀ1
+
+ @ T Ijk @x
+
+ðx1þI
+
+;
+
+y;
+
+2 tÞ
+
+dtdy
+
+X K All =K XP
+
+þ
+
+ðTi1kðxpi ; 0; tmþðkÀ1ÞÞ À Tpi ðtmþðkÀ1ÞÞÞ2;
+
+m¼1 pi¼1
+
+ð10Þ
+
+where x1 ¼ 0; x1þI ¼ L; y1 ¼ 0; y1þJ ¼ d; t0 ¼ 0; Tij0ðx; y; t0Þ ¼ T0ðx; yÞ
+
+for i = 1, 2, . . ., I; j = 1, 2, ..., J, d = L ­ characteristic dimension,
+
+q
+
+¼
+
+P 1
+
+KAll qV ðtkall Þ
+
+; j KAll kall¼1 d
+
+¼
+
+k
+q cp
+
+­
+
+thermal
+
+diffusivity
+
+coefficient,
+
+k; d; cp,
+
+q, L; qloss; KAll; P; qV ; K ­ defined as for Eqs. (1), (2), (6), (7), (8), (9),
+
+respectively.
+
+The functional represents the approximate solution mean
+
+square error at the boundary, initial time and along common edges
+
+of adjacent subdomains. The weights take into account the time-
+
+space region of integration and temperature derivatives in the inte-
+
+grals. They are associated with the dimensionless coordinates
+
+determined
+
+from
+
+T
+
+¼
+
+k qd
+
+T
+
+;
+
+x
+
+¼
+
+x d
+
+;
+
+y
+
+¼
+
+y d
+
+;
+
+t
+
+¼
+
+jd2t,
+
+where
+
+T; x; y; t
+
+­
+
+dimensionless coordinates, T; x; y; t ­ dimensional coordinates.
+
+4. Results
+
+During the experimental series (123 s), the current supplied to the heated foil is progressively increased, thus increasing the heat flux transferred to the boiling fluid flowing in the minichannels. To be able to use the experimental data in our calculations, we decided to limit the amount of data to those obtained in the period from the beginning of the experiment up to 22 s (for analyzing the results obtained for the subcooled boiling region) and between 88 s and 123 s (for analyzing the results obtained for the saturated boiling region). The data for the time from 22.01 to 87.99 s, outside of these two regions and corresponding to transient boiling, were not shown and discussed in this paper. At the beginning of the experiment, the liquid inlet mass flow rate was fixed.
+Figs. 3 and 4 show the local values of foil temperature and the heat transfer coefficient vs. time at the boundary y = d with the heat flux being increased during the experimental series. Experimental data are presented in Figs. 5­8.
+The foil temperature and local values of the heat transfer coefficient were obtained by solving the inverse heat conduction problem with the Trefftz method in the time-space subdomains. The calculations were performed using the time-dependent temperature measurements. The study involved the identification of this coefficient in two boiling regions: the subcooled boiling region and the saturated boiling region.
+The time step of 1 s was assumed in computation; the space area in each time step was divided into 4 sub-areas. With the division into space-time sub-areas, the fit of the approximate solution at boundary y = 0 to temperature measurements was investigated.
+Fig. 9 presents mean relative difference eT between the measured and the estimated temperatures, calculated from
+
+eT
+
+¼
+
+1 XP jTðxp; 0; tkÞ À
+
+P p¼1
+
+T p ðtk Þ
+
+T p ðtk Þj
+
+ð11Þ
+
+Results are listed for the subcooled boiling region and the saturated boiling region in Fig. 9a and b, separately.
+Analysis of the results indicates that at time steps/moments above 18 s, the approximate solution at boundary y = 0 shows better fit to the measured surface temperatures than at the initial time steps/moment (mean relative differences reach about 2.5% at up to 18 s and show noticeably lower values, about 1.5%, in the subsequent time interval of 18­22 s).
+In the saturated boiling region, the mean relative differences are about 2% between 88 s and 110 s. In further time steps, the differences increase considerably reaching the highest levels (10%) in the final phase of saturated boiling, approaching the dryout.
+In Fig. 3a and b the values of the foil temperature were presented at four selected points along the channel corresponding to four thermocouples Nos. 4, 8, 12, 16 (T4, T8, T12 and T16, see denotations in Fig. 1). It can be noticed that in the subcooled boiling region, an increase in the heat flux caused an increase in the
+
+B. Maciejewska, M. Piasecka / International Journal of Heat and Mass Transfer 107 (2017) 925­933
+
+929
+
+Fig. 3. The values of the time-dependent foil temperature at the boundary y = d, corresponding to foil temperature measured by selected thermocouples, results for: (a) the subcooled boiling region, (b,c) the saturated boiling region; experimental parameters as shown in Figs. 5­7.
+temperature of the heated foil (Fig. 3a), with no `nucleation hysteresis'. In the saturated boiling region, an increase in the temperature of the heated foil vs. time is observed for the thermocouples nos. 4, 8 and 12. Since the results obtained at the point corresponding to thermocouple no. 16 had different plots from the others (much higher values, with clear local minimum for time = 114 s), they were compiled with those obtained for the two neighboring points corresponding to thermocouples no. 15 and no. 17. The substantial foil temperature increase at three points located at the minichannel outlet (thermocouples no. 15, no. 16 and no. 17) was probably caused by nearly complete evaporation of the liquid phase (dryout) from the mixture flowing in the minichannel. Foil temperature changes in time interval from 112 s to 114 s near
+
+Fig. 4. The values of the time-dependent heat transfer coefficient at the boundary y = d, corresponding to foil temperature measured by selected thermocouples, results for: (a) the subcooled boiling region, (b,c) the saturated boiling region; experimental parameters as shown in Figs. 5­7.
+outlet of the minichannel could result from dynamic changes in the two-phase flow patterns which in this developed saturated boiling region look like moving layers of ``vapour cork". Such structure was observed in experiments with the vertical position of the minichannel and upflow when the boundary between liquid and vapour is hardly recognizable and sometimes it is not possible to differentiate liquid droplets in the vapour mist [30]. At high heat flux forming cork structures may result in local wall temperature drop, not only its increase. Further increase in heat flux during experiment will provide to critical heat flux and appearance of the boiling crisis resulting in overheating of the heated surface and decreasing the efficiency of heat transfer.
+
+930
+
+B. Maciejewska, M. Piasecka / International Journal of Heat and Mass Transfer 107 (2017) 925­933
+
+Fig. 5. The values of the time-dependent mass flow rate for the tested series: (a) the
+subcooled boiling region, (b) the saturated boiling region; volumetric heat flux: qV = 288­374 MW/m3 (the subcooled boiling region), qV = 642­781 MW/m3 (the saturated boiling region); experimental parameters as shown in Figs. 6 and 7.
+
+Fig. 6. The values of the time-dependent inlet pressure for the tested series: (a) the subcooled boiling region, (b) the saturated boiling region; experimental parameters as shown in Figs. 5 and 7.
+
+The values of the time-dependent heat transfer coefficient and the boundary y = d, in the subcooled boiling region are shown in Fig. 4a and in Fig. 4b and c for the saturated boiling region. There was a uniform monotonic increase in the heat transfer coefficient over time in the subcooled boiling region, which confirms the results obtained by the authors in their earlier studies when steady-state conditions were analyzed [30,32]. In this boiling region, an increase in the heat flux increased the value of heat transfer coefficient. In the saturated boiling region, the lowest coefficients were observed at the minichannel outlet and at the final stage of the experiment for the highest heat fluxes supplied to the heated foil, similarly as reported in [30,32­34]. The highest coefficients were obtained at the beginning of the time interval under analysis, indicating the beginning of the saturated boiling in the minichannel. Thermocouple no. 4 was mounted near the minichannel inlet so the highest values of the local heat transfer coefficient were observed in this place at the saturated boiling region (see Fig. 4b). The position of other thermocouples corresponding to values of the local heat transfer coefficient were getting lower and the lowest values of the coefficient are reported at the channel outlet (at the location of the thermocouple no. 16). The results shown in Fig. 4b also indicate discrepancies in the coefficient relations identified as a function of time in the saturated boiling region, given at points corresponding to thermocouple no. 4, probably related to saturated boiling variations during the registration of flow oscillations (see Fig. 5), pressure fluctuations (see Fig. 6) and dynamic changes in the two-phase flow patterns. Since the local heat transfer coefficients corresponding to the
+
+temperatures indicated by thermocouple no. 4 had different plots from the others (much higher values, with a few extremes), in Fig. 4c they were compiled local heat transfer coefficients corresponding to the indication of two neighboring thermocouples no. 3 and no. 5. All three plots of heat transfer coefficient vs. time in Fig. 4c appeared to be similar, which confirms the higher values of the coefficient and occurrence of its extremes for approximated times t = 100 s (minimum) and t = 112 s (maximum). The temperature relationships shown in Fig. 3c, which indicate a dryout, are supported by the distribution of local heat transfer coefficients, as for thermocouple no. 16 the coefficient values were lowest (see Fig. 4c). Generally, the results shown in Fig. 4 confirm the heat transfer coefficient dependencies previously observed when the authors analyzed results obtained from experiments and calculations conducted for the steady state.
+The instability of mass flux and pressure are widely featured in many works on the flow with change of phase. Papers often reported instabilities under certain conditions in micro- or minichannels as e.g. [4,6,35­39]. Some scientists assume that phenomena during flow boiling have a wave-like nature, others represent the concepts of classification flow structures as repeated cyclically, the so-called oscillating flow structures of different types. According to [6] a stability criterion might be derived from the experimental results considering the two controlled parameters (heat flux and liquid inlet mass flow rate). In the experiment the liquid inlet mass flow rate is kept nearly constant and heat flux is gradually increased.
+The values of the time-dependent experimental parameters for the tested series are presented for: mass flow rate - in Fig. 5, inlet
+
+B. Maciejewska, M. Piasecka / International Journal of Heat and Mass Transfer 107 (2017) 925­933
+
+931
+
+Fig. 7. The values of the time-dependent outlet pressure for the tested series: (a) the subcooled boiling region, (b) the saturated boiling region; experimental parameters as shown in Figs. 5 and 6.
+
+Fig. 8. The values of the time-dependent foil temperature for the tested series, recorded for thermocouple no. 8, (a) the subcooled boiling region, (b) the saturated boiling region; experimental parameters as shown in Figs. 5­7.
+
+pressure - in Fig. 6 and outlet pressure - in Fig. 7. The values obtained for the subcooled boiling region are shown in Figs. 5a, 6a and 7a and for the saturated boiling region - in Figs. 5b, 6b and 7b, respectively. Observed instabilities are dynamic. Such instabilities are related to the change of the mass flow density (density-wave instability) and often occur with pressure-drop instabilities. Analysis of all instabilities recorded during the experiment indicates their oscillating character. The instabilities in mass flow rate recorded in the saturated boiling region (Fig. 5b) have also a wavy character.
+Dynamic instabilities are often accompanied by thermal oscillations which occur in a convective boiling upflow system. The term ``thermal oscillations" has been used in situations where temperature fluctuations occur in a solid interacting with a fluid. The thermal oscillations are characterized by large amplitude fluctuations in the heated wall temperature. The flow oscillates between different types of two-phase flow and thus produces large amplitude temperature oscillations [40,41]. Fig. 8 shows an example of the thermal oscillations plot. The values of the time-dependent foil temperature recorded for thermocouple No. 8 were selected as representative values for each of boiling regions, i.e., for the subcooled boiling region data and for the saturated boiling region, as presented in Fig. 8a and c, respectively.
+5. Estimation of the mean relative error for the calculation of the heat transfer coefficient
+The mean relative error of the heat transfer coefficient was determined by the following formula:
+
+À@a
+@k
+
+DkÁ2
+
+þ
+
+À@a
+@T
+
+DT Á2
+
+þ
+
+
+@a
+@Tf
+
+DT f
+
+2
+
+þ
+
+
+
+@a
+
+@
+
+@T @y
+
+ D
+
+2
+
+!1 2
+
+@T
+
+@y
+
+ea ¼
+
+aðx; tÞ
+
+ð12Þ
+
+where
+
+Dk ¼ 0:1 W/(m K) À uncertainty of thermal conductivity (from
+
+the known temperature and properties of the material specified
+
+by DT
+
+t¼heDmT KaþnuqfaÀfficffiffi@@ffitTffixffiuffiDffirffiffiexffiffiffiÁrffiffi)2ffiffi,ffiþffiffiffiffiffiÀffiffi@@ffiffiTtffiffiDffiffiffiffitffiffiÁffiffi2ffi
+
+À
+
+the
+
+accuracy
+
+of
+
+the
+
+foil
+
+tem-
+
+perature approximation, DTK ¼ 0:9 À uncertainty of temperature measurement,
+
+Dx = 0.0001 m À uncertainty of thermocouple location,
+
+Dt = 0.01 s À uncertainty of temperature reading,
+
+DTf À the accuracy of the fluid temperature determination:
+
+ 
+
+in in
+
+the the
+
+subcooled boiling region DTf = DTK, saturated boiling region DTf = DTsat
+
+=
+
+@T@
+
+sat
+p
+
+Dp,
+
+D
+
+@T @y
+
+¼
+
+rffiffiffi@ffi@ffiyffi2ffi@ffiTffixffiffiDffiffiffixffiffiffiffiffi2ffiffiffiffiþffiffiffiffiffiffiffi@ffi@ffiy2ffiffi@TffitffiffiDffiffiffiffitffiffiffiffi2ffiffi
+
+À
+
+the
+
+accuracy
+
+of
+
+the
+
+derivative
+
+of foil temperature with respect to y approximation.
+
+Fig. 10 presents the values of the time-dependent mean relative
+
+error for the tested series calculated by the presented method sep-
+
+arately for the subcooled boiling region, Fig. 10a, and the saturated
+
+boiling region, Fig. 10b. In the subcooled boiling region, the values
+
+of errors were about 5% for all measurements. The relationship in
+
+Fig. 10a indicates that mean relative differences in this boiling
+
+region decrease nearly linearly during the experiment. The present
+
+932
+
+B. Maciejewska, M. Piasecka / International Journal of Heat and Mass Transfer 107 (2017) 925­933
+
+Fig. 9. The values of the time-dependent mean relative difference for the tested series: (a) the subcooled boiling region, (b) the saturated boiling region.
+results confirm the errors obtained previously in the steady state measurements, whose values were also 2­6%.
+In the saturated boiling region, the errors were noticeably higher, from about 20% at the final moment of the experiment (118­123 s) to even 58% at 108 s of the experiment. Fig. 10b shows a large scatter of the errors between 88 and 114 s. In the steady state experiments, the values of errors were also considerably higher in the saturated boiling region, in the order of 20% [42], than those obtained in the subcooled boiling region. These relatively high error values are likely associated with a small difference between the heated foil temperature and the saturation temperature (T(x, d, t) À Tsat(x, t)) in Eq. (1), along with substantial fluctuations and oscillations of the experimental parameters acquired in the saturated boiling region.
+6. Conclusions
+Flow boiling heat transfer with FC-72 Fluorinert was evaluated in a vertical minichannel with a thin foil as a heated element. The temperature of the foil was observed by 18 K-type thermocouples mounted at 18 points on its outer surface. Data acquisition stations monitored all experimental parameters measured at 0.01 s intervals. The heat transfer coefficient at the foil-fluid interface was calculated. The solution to a two-dimensional unsteady-state inverse boundary problem, solved in time-dependent subdomains using the Trefftz method, gave the foil temperature. Its approximate value satisfies the differential equation exactly. The boundary conditions are satisfied only approximately. Time-dependent Trefftz functions were found to be suitable for constructing approximate solution to the heat equation needed to identify the timedependent heat transfer coefficient.
+The temperature field distributions on foil-fluid contact surface and the local heat transfer coefficient were analyzed separately for
+
+Fig. 10. The values of the time-dependent mean relative error for the tested series: (a) the subcooled boiling region, (b) the saturated boiling region.
+two areas: the subcooled and the saturated boiling regions. It can be noticed that in the subcooled boiling region, an increase in the heat flux caused an increase in the temperature of the heated foil with no nucleation hysteresis. In the saturated boiling region a considerable foil temperature increase was observed at the minichannel outlet, caused probably by the dryout.
+The values of the time-dependent heat transfer coefficient and at the boundary y = d, in the subcooled boiling, indicated a uniform monotonic increase over time, which confirms the results obtained by the authors in their previous studies of steady-state conditions. In the subcooled boiling region, the heat transfer coefficient was relatively low. The local values of the heat transfer coefficient increased slightly with the distance from the minichannel inlet. In the saturated boiling region the heat transfer coefficient was very high. The highest coefficients in the time interval analyzed corresponded to the beginning of saturated boiling in the minichannel. The lowest values of the coefficient were observed at the channel outlet. At the inlet, local heat transfer coefficients show a noticeable scatter during the experiment. A uniform decrease in the coefficient value over time was observed at consecutive points located along the minichannel.
+Error propagation in time was investigated and low errors in the subcooled boiling region and high errors in the saturated boiling region were observed. The mean relative differences determined between the measured and computed heated foil temperatures did not exceed 10% in the entire experiment.
+Acknowledgments
+The research reported herein was supported by a grant from the National Science Centre ­ Poland (No. DEC-2013/09/B/ST8/02825).
+
+B. Maciejewska, M. Piasecka / International Journal of Heat and Mass Transfer 107 (2017) 925­933
+
+933
+
+References
+[1] A. Majumder, B. Mehta, S. Khandekar, Local Nusselt number enhancement during gas-liquid Taylor bubble flow in a square mini-channel: an experimental study, Int. J. Therm. Sci. 66 (2013) 8­18.
+[2] Z. Zhou, X. Xu, X. Liang, Experiments on the transient heat transfer of minichannel heat sink under high heat flux density in an enclosed loop, Exp. Therm. Fluid Sci. 34 (2010) 1409­1414.
+[3] J. Taler, B. Wójtowicz, Measurement of unsteady fluid temperature with the use of inverse heat conduction solution, Arch. Thermodyn. 28 (2007) 3­14.
+[4] H. Grzybowski, R. Mosdorf, Dynamics of pressure oscillations in flow boiling and condensation in the mini channel, Int. J. Heat Mass Transfer 73 (2014) 500­510.
+[5] S. Blasiak, Time-fractional heat transfer equations in modeling of the noncontacting face seals, Int. J. Heat Mass Transfer 100 (2016) 79­88.
+[6] D. Brutin, L. Tadrist, Pressure drop and heat transfer analysis of flow boiling in a minichannel: influence of the inlet condition on two-phase flow stability, Int. J. Heat Mass Transfer 47 (2004) 2365­2377.
+[7] J. Barber, B. Brutin, K. Sefiane, J.L. Gardarein, L. Tadrist, Unsteady-state fluctuations analysis during bubble growth in a ``rectangular" microchannel, Int. J. Heat Mass Transfer 54 (2011) 4784­4795.
+[8] A.N. Tikhonov, V.Y. Arsenin, Solution of Ill-Posed Problems, Wiley, New York, 1977.
+[9] J.V. Beck, B. Blackwell, C.R.St. Clair, Inverse heat conduction, Ill-Posed Problems, Wiley - Interscience Publ., New York, 1985.
+[10] M.N. Özisik, H.R.B. Orlande, Inverse heat transfer: fundamentals and applications, Fundamentals and Applications, Taylor & Francis, New York, 2000.
+[11] E. Trefftz, Ein Gegenstück zum Ritzschen Verfahren, 2, in: Proc. Int. Kongress für Technische Mechanik, Zürich, 1926, pp. 131­137.
+[12] I. Herrera, Trefftz method: a general theory, Numer. Meth. Partial Differ. Eqs. 16 (2000) 561­580.
+[13] V. Kompis, F. Konkol, M. Vasko, Trefftz-polynomial reciprocity based FE formulations, Comput. Assist. Mech. Eng. Sci. 8 (2001) 385­395.
+[14] E. Kita, N. Kamiya, Trefftz method: an overview, Adv. Eng. Softw. 24 (1995) 3­ 12.
+[15] M.J. Cialkowski, K. Grysa, Trefftz method in solving the inverse problems, J. Inverse Ill-Posed Probl. 18 (2010) 595­616.
+[16] S. Hoz_ ejowska, Homotopy perturbation method combined with trefftz method in numerical identification of temperature fields in flow boiling, J. Theoret. Appl. Mech. 53 (2015) 969­980.
+[17] K. Grysa, A. Macia g, A. Pawin´ ska, Solving nonlinear direct and inverse problems of stationary heat transfer by using Trefftz functions, Int. J. Heat Mass Transfer 55 (2012) 7336­7340.
+[18] B. Kruk, M. Sokala, Sensitivity coefficients applied to two-dimensional transient inverse heat conduction problems, J. Appl. Math. Mech. ZAMM 81 (2000) 945­946.
+[19] S. Blasiak, A. Pawinska, Direct and inverse heat transfer in non-contacting face seals, Int. J. Heat Mass Transfer 90 (2015) 710­718.
+[20] A. Macia g, Trefftz function for a plate vibration problem, J. Theoret. Appl. Mech. 49 (2011) 97­116.
+[21] K. Grysa, B. Maciejewska, Trefftz functions for the non-stationary problems, J. Theoret. Appl. Mech. 51 (2013) 251­264.
+
+[22] B. Movahedian, B. Boroomand, S. Soghrati, A Trefftz method in space and time using exponential basis functions: application to direct and inverse heat conduction problems, Eng. Anal. Bound. Elem. 37 (2013) 868­883.
+[23] M.J. Cialkowski, New type of basic functions of FEM in application to solution of inverse heat conduction problem, J. Therm. Sci. 11 (2002) 163­171.
+[24] V. Kompis, M. Toma, M. Zmindak, M. Handrik, Use of Trefftz functions in nonlinear BEM/FEM, Comput. Struct. 82 (2004) 2351­2360.
+[25] Q-H. Qin, The Trefftz Finite and Boundary Element Method, WitPress, Southampton, Boston, 2000.
+[26] B. Maciejewska, Application of the modified method of finite elements for identification of temperature of a body heated with a moving heat source, J. Theoret. Appl. Mech. 42 (2004) 771­787.
+[27] M.J. Cialkowski, A. Fra ckowiak, Solution of the stationary 2D inverse heat conduction problem by Trefftz method, J. Therm. Sci. 11 (2002) 148­162.
+[28] M. Piasecka, B. Maciejewska, Enhanced heating surface application in a inverse heat transfer problem, Exp. Therm. Fluid Sci. 44 (2013) 23­33.
+[29] K. Grysa, S. Hoz_ ejowska, B. Maciejewska, Compensatory calculus and Trefftz functions applied to local heat transfer coefficient determination in a minichannel, J. Theoret. Appl. Mech. 50 (2012) 1087­1096.
+[30] M. Piasecka, Heat transfer mechanism, pressure drop and flow patterns during FC-72 flow boiling in horizontal and vertical minichannels with enhanced walls, Int. J. Heat Mass Transfer 66 (2013) 472­488.
+[31] M. Piasecka, Correlations for flow boiling heat transfer in minichannels with various orientations, Int. J. Heat Mass Transfer 81 (2015) 114­121.
+[32] M. Piasecka, B. Maciejewska, Heat transfer coefficient during flow boiling in a minichannel at variable spatial orientation, Exp. Therm. Fluid Sci. 68 (2015) 459­467.
+[33] M. Piasecka, Impact of selected parameters on boiling heat transfer and pressure drop in minichannels, Int. J. Refrig. 56 (2015) 198­212.
+[34] M. Piasecka, K. Stra k, B. Maciejewska, Calculations of flow boiling heat transfer in a minichannel based on liquid crystal and infrared thermography data, Heat Transfer Eng. 38 (3) (2017) 332­346.
+[35] P.A. Kew, K. Cornwell, On pressure fluctuations during boiling in narrow minichannels, in: Proc. 2nd European Thermal-Sciences and 14th UIT National Heat Transfer Conference, 1996, pp. 1323­1327.
+[36] S.G. Kandlikar, Fundamental issues related to flow boiling in minichannels and microchannels, Exp. Therm. Fluid Sci. 26 (2002) 389­407.
+[37] P. Balasubramanian, S.G. Kandlikar, Experimental study of flow patterns, pressure drop, and flow instabilities in parallel rectangular minichannels, Heat Transfer Eng. 26 (3) (2005) 20­27.
+[38] J. Kennedy, D. Roach Jr., M. Abdel-Khalik, S. Ghiaassiaan, S. Jeter, S. Quershi, The onset of flow instability in uniformly heated horizontal micro-channels, J. Heat Transfer 122 (2000) 118­125.
+[39] D. Brutin, F. Topin, L. Tadrist, Experimental study of unsteady convective boiling in heated minichannels, Int. J. Heat Mass Transfer 46 (2003) 2957­ 2965.
+[40] S. Kakac, B. Bon, A review of two-phase flow dynamic instabilities in tube boiling systems, Int. J. Heat Mass Transfer 51 (2007) 399­433.
+[41] L.C. Ruspini, C.P. Marcel, A. Clausse, Two-phase flow instabilities: a review, Int. J. Heat Mass Transfer 71 (2014) 521­548.
+[42] B. Maciejewska, M. Piasecka, An application of the non-continuous Trefftz method to the determination of heat transfer coefficient for flow boiling in a minichannel, Heat Mass Transfer, doi: http://dx.doi.org/10.1007/s00231-0161895-1.
+
+
