@@ -4,19 +4,31 @@
 #include "Timer.h"
 #include "FileProcessing.h"
 
+#include <windows.h>  
+#include <stdlib.h>  
+#include <string.h>  
+#include <tchar.h> 
+
 void Test(unsigned int x);
 
 using namespace std::string_literals;
 
 int main()
 {
-	std::vector<std::string> vec;
-	vec.reserve(2);
 
-	vec.emplace_back("raw"s);
+
+	int WINAPI WinMain(HINSTANCE hInstance,
+		HINSTANCE hPrevInstance,
+		LPSTR lpCmdLine,
+		int nCmdShow);
+	LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
+
+	std::vector<std::string> vec;
+	vec.reserve(1);
+
 	vec.emplace_back("clip"s);
 
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 1; i++)
 	{
 		Timer test;
 		convertToTxt("C:/Users/Lasze/Downloads/4_IJHMT_2017.pdf"s, "-"s + vec[i], "./Files/"s + vec[i] + "/4_IJHMT_2017.txt"s);
