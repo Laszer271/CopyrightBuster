@@ -13,6 +13,9 @@ bool convertToTxt(const std::string & filepath, const std::string & flags, const
 	for (; destinationPath[i] != '/'; i--);
 
 	std::string path = destinationPath.substr(0, i);
+	std::string filename = destinationPath.substr(i+1);
+	std::ofstream database("./Files/database.txt", std::ofstream::out | std::ofstream::app);
+	database << filename << "\n";
 
 	struct stat info;
 	if (stat(path.c_str(), &info) != 0)
@@ -26,6 +29,7 @@ bool convertToTxt(const std::string & filepath, const std::string & flags, const
 	struct stat buffer;
 	return (stat(destinationPath.c_str(), &buffer) == 0);
 
+	database.close();
 }
 
 void processText(const std::string& filepath)
@@ -44,17 +48,14 @@ void processText(const std::string& filepath)
 	{
 		int tempLength = line.length();
 
-		if (tempLength > 0 && tempLength < 150 && line[tempLength - 1] != '.')
-			paragraph.clear();
-		else if (tempLength > 0)
+		if (tempLength > 50 || (tempLength > 0 && line[tempLength-1] == '.'))
 		{
-			newFile << paragraph << line << "\n";
-			paragraph.clear();
+			newFile << line << "\n";
 		}
 	}
 
 	oldFile.close();
 	newFile.close();
 
-	//remove(processedFile.c_str());
+	remove(processedFile.c_str());
 }

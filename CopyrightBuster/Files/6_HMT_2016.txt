@@ -1,7 +1,16 @@
 An application of the non-continuous Trefftz method to the determination of heat transfer coefficient for flow boiling in a minichannel Beata Maciejewska & Magdalena Piasecka
+Heat and Mass Transfer Wärme- und Stoffübertragung ISSN 0947-7411 Heat Mass Transfer DOI 10.1007/s00231-016-1895-1
 Your article is published under the Creative Commons Attribution license which allows users to read, copy, distribute and make derivative works, as long as the author of the original work is cited. You may selfarchive this article on your own website, an institutional repository or funder's repository and make it publicly available immediately.
+An application of the noncontinuous Trefftz method to the determination of heat transfer coefficient for flow boiling in a minichannel
+Received: 26 June 2015 / Accepted: 12 August 2016 © The Author(s) 2016. This article is published with open access at Springerlink.com
 AbstractThe paper presents an application of the semianalytical method, called the non-continuous Trefftz method, to the calculation of the heat transfer coefficients. It is very effective method for solving direct and inverse problems. The results obtained by this method are consistent with the results obtained by using complicated methods: the FEM and Beck method. Sought local heat transfer coefficients between the heating surface and the boiling liquid flowing through 1 mm deep minichannel were calculated from the Robin boundary condition. The temperature of the heating surface and the derivative of the temperature were was found from solving the inverse problem. The study is limited to the identification of the heat transfer coefficient in the subcooled and the saturated nucleate boiling regions. The article presents also the measurement stand and methodology of conducting the experiment. Presented issues allows verification of state-of-the-art methods of solving the inverse problem by using the authors' empirical data from the experiment.
 List of symbols aLinear combination coefficient HFunctional ICurrent supplied to the heating foil (A) LMinichannel length (m) MNumber of Trefftz functions used for
+1 Faculty of Management and Computer Modelling, Kielce University of Technology, Kielce, Poland
+2 Faculty of Mechatronics and Mechanical Engineering, Kielce University of Technology, Kielce, Poland
+PNumber of temperature measurements qVVolumetric heat flux, (capacity of internal heat
+source) (W/m3) SCross-section area (m2) TTemperature (K) u(x, y)Particular solution of the non-homogeneous
+equation vi(x, y)Trefftz functions x, ySpatial coordinates (m)
+UThe voltage drop across the foil (V) Thickness (m) Relative difference Thermal conductivity [W/(mK)] Mean relative error
 Subscripts BBeck method FFoil fFluid GGlass HFEM with the Hermite interpolation LFEM with the Lagrange interpolation lLiquid NNon-continuous Trefftz method PThe last temperature measurement pTemperature measurement satSaturation
 The electronic industry develops rapidly and it is associated with the need of heat dissipation in the confined spaces. The interest in heat transfer from small devices is increasing; miniaturization requires effective cooling systems. Lower operating temperatures affect durability and safety of devices. The growing demand for miniaturization entails seeking even better cooling technologies that will prevent mechanical and electronic components from temperature overshoot. Flow boiling in channels is one of the possibilities of heat removal. Owing to the change of the state which accompanies flow boiling in minichannels, it is feasible to meet contradictory needs simultaneously, i.e. obtain a heat flux as large as possible at small temperature difference between the heating surface and the saturated liquid and, at the same time, retain small dimensions of heat transfer systems. In turn, boiling in specially prepared surfaces helps obtain an additional increase in heat transfer efficiency which translates to higher values to the heat transfer coefficient. The use of enhanced surfaces allows additional intensification of the process and are valuable due to the theoretical enhancement potential for heat transfer.
 The main goal of this study was to create an efficient, numerical calculation model to solve the inverse boundary problem and to determine the heat transfer coefficient from the experimental data concerning flow boiling heat transfer for a cooling liquid in an asymmetrically heated minichannel. The results obtained with the proposed twodimensional calculation method were compared with the results established by means of the FEM and the Beck method.
@@ -24,43 +33,84 @@ Fig. 1a The schematic diagrams of the test section: #1-minichannel, #2-heated fo
 Fig.2Colour heating foil images while increasing later decreasing heat flux supplied to the enhanced foil with micro-recesses; a for subcooled boiling region, b for the saturated nucleate boiling region;
 experimental parameters: mass flux 282 kg/(m2s), pressure at the inlet 117.5 kPa, inlet liquid subcooling 34 K, volumetric heat flux qV = 9.51 × 104 ÷ 2.37 × 105 kW/m3
 It is possible to observe both walls of the minichannel through two openings covered with glass plates. The plate (Fig. 1a, #4a) in the front cover allows to observe changes in the foil surface temperature due to liquid crystal thermography. The surface between the foil and the glass is covered with a thermosensitive liquid crystal paint (#3). The opposite surface of the minichannel can be observed through another glass plate (#4b) in order to recognize the structures of the two-phase flow. The liquid temperature and pressure are measured in the inlet and at the outlet of the minichannel thanks to K-type thermocouples and pressure converters. The heating foil, acting as the heating surface in the minichannel, is powered by an inverter welder as a current regulated DC power supply (up to 300 A). The use of thermography has been made possible thanks to the colour image acquisition system which includes the Canon G11 camera, Canon EOS 550D digital SLR camera and relevant lighting system. Measurement data is recorded with DaqBoard 2005 data acquisition station equipped with DASYLab software.
+2.2Experimental methodology and heat transfer phenomena during flow boiling in a minichannel
 As the observation of the two-dimensional temperature distribution on the heating surface of the minichannel is conducted owing to liquid crystal thermography, the system must be calibrated to precede the boiling heat transfer investigation. Its aim is to assign corresponding temperature values to the hues observed on the surface
 covered with liquid crystals. Finally the calibration curve is obtained [18, 25]. The liquid crystal colour images of the heating foil in the sample measurement series are presented in Fig. 2. Flow observation was carried out simultaneously on the opposite side of the minichannel.
 In experimental conditions, the subcooling liquid flows laminarly into the asymmetrically heated minichannel. First, with increasing supplied heat flux, the heat transfer between the heating foil and the working fluid in the minichannel proceeds by means of a single phase forced convection. In the foil adjacent area, the liquid becomes superheated, whereas in the flow core, it remains subcooled. The temperature of the heating foil as well as the increase in the heat flux supplied to this heating area progressive. It is recognizable as the hue sequence pattern, which indicated a gradual increase in the heating surface temperature (temperatures outside the sensitivity range are shown in black), settings from # 1 to # 8, Fig. 2. There is also an increase in the bulk fluid temperature along the flow's length, but it is significantly slower. If the heat flux is supplied to the heating area, there is a sharp temperature increase in the heating surface, while the bulk fluid temperature rises slowly; the heat transfer coefficient tends to decrease. In the further part of the experiment, the increase in the heat flux causes the activation of vapour nuclei on the heating surface of the minichannel. Boiling incipience brings about a drop in the heating surface. The decrease in the temperature of the heating surface is triggered by spontaneous vapour bubbles that are internal heat release structures absorbing considerable
 amounts of energy transferred to the fluid [17­21]. The "boiling front" is recognizable as sharp hue changes of the liquid crystals, inversely to the spectrum sequence, then black hue returns. It can be observed while analysing images from # 1 up to # 8, Fig. 2. When the heat flux supplied to the foil increases, the "boiling front" moves in the direction opposite to the direction of the liquid flow in the channel. The boiling incipience (BI) is identified with the maximum value of the heating surface temperature. A sharp temperature drop follows afterwards. It is accompanied by the increase in the heat transfer coefficient.
 Firstly, data for increasing heat flux supplied to the heating surface ­ 8 of the first settings for subcooled boiling and the incipience of boiling with the observed "boiling front", presented in Fig. 2, were taken for calculations. Heat transfer coefficient vs. the distance along the length of the minichannel for the consecutive single-phase forced convection and subcooled boiling regions are shown in Figs. 4a, 5a, 6a, 7a. Then, with further increasing of the heat flux increased, a new sequence of hues could be seen in the upper part of the images (with the sequence of hues like in the spectrum). This indicated a further increase in the temperature of the heating surface. When the temperature of the liquid in the core flow reached saturation temperature, saturated boiling occurred in the minichannel (Fig. 2, images from #9 to #13). In the saturated nucleate boiling region, the heat transfer coefficient was locally several dozen up to several hundred times higher (fully developed nucleate boiling regime) than that at the incipience of boiling and that in the single-phase convection region. In fully developed nucleate boiling, the heat transfer coefficient was the highest but then it decreased sharply. The evaporation greatly improved the efficiency of the heat transfer process. When the heat transfer coefficient was strongly dependent on the heat flux until the occurrence of partial dryout, deterioration of heat transfer was observed [21]. The lowest values of the coefficient were reported at the channel outlet; they were similar to those obtained for single-phase convection at the channel inlet. Heat transfer coefficient vs. the distance along the length of the minichannel for the saturated nucleate boiling region, are presented in Figs. 4b, 5b, 6b, 7b. Next, the current supplied to the foil is gradually reduced (Fig. 2, images from #14 to #18) and mild hue changes, in the direction opposite to the spectrum sequence, are observed. As a result, heat transfer returns to single phase forced convection. Again, recorded heat transfer coefficient values are low.
+Thermal flow and electrical parameters are as the following:
+· the local temperature of the heating foil, determined from the hue distribution on the surface;
+· the temperature and pressure of the fluid in the minichannel inlet and outlet;
+· flow rate/mass flux; · the voltage drop over the heating foil length U and the
 current supplied to the heating foil I.
+The heat source capacity (volumetric heat flux) qV supplied to the heating wall is determined from the formula:
 where SF denotes cross-section of the foil, F- the thickness of the foil.
 Evaluation of the accuracy of heating foil temperature measurements using liquid crystals thermography and the heat source efficiency measurement error were discussed in [18, 25, 26]. The mean temperature measurement error of the heating foil by liquid crystal thermography
 TF = 0.86 K was obtained. The value of the relative heat source efficiency measurement amounted to 3.53 %.
 The study aims to identify local values of the heat transfer coefficient, between the heating foil and the boiling liquid flowing along the minichannel, in the two regions:
+· the consecutive single-phase forced convection and subcooled boiling region (abbr. the subcooled boiling region)
 · the consecutive saturated boiling and single-phase forced convection region (abbr. the saturated nucleate boiling region).
 This coefficient was determined on the basis of its dependence on the heating foil temperature, the temperature of the liquid near the surface of the foil and the derivative of the foil temperature on its surface.
 The foil temperature was calculated by assuming the two-dimensional heat flow across essential elements of the measurement module, Fig. 3. The temperature of the glass barrier was calculated as an auxiliary operation. The stationary temperature status was assumed to occur in the glass barrier and the heating foil. The thickness of liquid crystal layers and the temperature changes in glass, foil and liquid along the minichannel width were omitted. It is assumed that there is a heat source in the foil, with constant efficiency qV, distributed evenly in the entire volume of the foil. The application of the liquid crystal thermography provides information about the temperature of the heating
+where F = (x, y)  R2 : x1 < x < xP, G < y < G +F },
 where x1 is the location of the primary temperature measurement on the boundary y = G, xP--the location of the last temperature measurement, Tp--value of the temperature measurement, P--number of the temperature measurements, G--thickness of the glass barrier, F--thermal conductivity coefficient of the foil, G--thermal conductivity coefficient of the glass.
+The temperature TG of the glass barrier was obtained by solution of the direct problem [26]:
+Fig.3Diagram of two-dimensional approximation of heat flux across main elements of the test section
 where L denotes the length of the glass barrier.
 foil adjacent to the glass. It is also assumed that the external surface of the glass barrier is isolated thermally. There is no boundary condition on the surface of the heating foil contacting the flowing liquid.
 The linear distribution of the flowing liquid temperature in the subcooled boiling region while the flowing liquid temperature equals to the saturation temperature in the saturated nucleate boiling region, are assumed.
+The temperature TF of the heating foil was determined by solving the inverse heat conduction problem [26]:
+Due to the ratio of the thickness to the length of the heating
+to 0.0025 in setting # 18), the division of the domain F
+were proposed. In addition, when the domain is divided to
+subdomains the lower number of Trefftz functions is used
+in an approximate solution in comparison to the possible
 solution in whole domain.
+To determine the foil temperature TF(x, y), the domain
+where L1 was the number of subinterwals in the direction
 x and L2 was the number of subinterwals in the direction y.
 where u(x, y) represents the particular solution of the nonhomogeneous Eq. (2), vi(x, y) are the Trefftz functions which strictly satisfy Laplace`s equation, aij--linear combination coefficients.
 The coefficients aij occurring in the formula (1) were found by solving a system of linear equations resulting from the minimization of the functional:
 x.
+The functional (13) expresses a mean square error of the
+approximate solution on a domain boundary and along
 common edges of neighbouring subdomains.
+ring in the functional (13) are the results of the solution of
+the direct problem (8)­(11). The problem can be solved in
 the same way as the inverse problem (2)­(7).
+4Results: determination of local heat transfer coefficients
+The local values of the heat transfer coefficient  were calculated from the formula:
 where Tl(x) = Tf (x) in the consecutive single-phase forced convection and subcooled boiling region or Tl(x) = Tsat(x) in the consecutive saturated boiling and single-phase forced convection region; Tf --fluid temperature calculated with the assumption of linear temperature distribution of the fluid flowing along the minichannel, from the inlet to the outlet; Tsat--saturation temperature determined on the basis of the linear pressure distribution, from the inlet to the outlet of the minichannel.
+The following function, as in [27], was accepted as a particular solution of Eq. (2):
 u(x, y) = - qV y2 .
 For an approximation of the temperature of the glass barrier and the heating foil, the 12 Trefftz functions defined by the following formulas were used [11]:
+Functions determined by Eq. (16­17) are coefficients at
+partial derivatives in expansion of the solution of the gov-
+erning equation in the Taylor series, in which the deriva-
 .
+isfy the Laplace equation and create a complete system of
 functions.
 The domain F were divided into the 8 subdomains (L1 = 4, L2 = 2). The domain G were not divided into subdomains.
 The results of the heat transfer coefficients obtained by using of the presented method are showed on Fig. 4a, b.
+5Comparison of the noncontinuous Trefftz method with other methods based on the Trefftz functions
 In [16, 17] were presented the solving of the direct (8)­(11) and the inverse (2)­(7) problems by using of the finite elements method with two types of base functions. The first type of the base functions was based on the Lagrange interpolation, while the second one on the Hermite interpolation.
 In the Lagrange interpolation, the value of a function in the node was the only node parameter while in the Hermite interpolation the three parameters were connected with each node (the value of a function at this node point; the value of a derivative with respect to x, the value of a derivative with respect to y). The Trefftz functions were used for constructing of the base functions.
 In order to solve the problems (8)­(11) and (2)­(7) by using the finite element method, the domain G was divided into 350 rectangular elements. The division of the domain F was dependent on the number and location of
+the measurement points. In setting # 14, the number of the
+elements is the highest and it makes up 326, in setting # 18
+the number of elements is the lowest and it is 40. In each
+the vertices of the element was constructed. The measure-
+ment points occurring in condition (7) were located in the
 relevant nodes of the grid.
+The 4 Trefftz functions were used in the FEM with the
+Lagrange interpolation: 1, x, y, xy; the 12 Trefftz func-
+tions were used in the FEM with the Hermite interpolation:
 .
+The values of the heat transfer coefficients obtained by
 means of the the FEM are showed on Figs. 5a, b, 6a, b.
+The differences between the heat transfer coefficient
+N (x) obtained by means of the non-continuous Trefftz method and the heat transfer coefficient obtained by
 where L(x) denotes the heat transfer coefficient obtained by means of the FEM with the Lagrange interpolation, H (x) denotes the heat transfer coefficient obtained by
 Fig. 4a Local heat transfer coefficients in the subcooled boiling region obtained by the non-continuous Trefftz method as a function of the distance from the inlet to the minichannel, experimental data as for Fig. 2. b Local heat transfer coefficients in the saturated nucle-
 ate boiling region obtained by the non-continuous Trefftz method as a function of the distance from the inlet to the minichannel, experimental data as for Fig. 2
@@ -75,19 +125,34 @@ the saturated nucleate boiling region obtained by the FEM method, with the Lagra
 Fig. 6a Local heat transfer coefficients in the subcooled boiling region obtained by the FEM method with the Hermite interpolation as a function of the distance from the inlet to the minichannel, experimental data as for Fig. 2. b Local heat transfer coefficients in the sat-
 urated nucleate boiling region obtained by the FEM method with the Hermite interpolation as a function of the distance from the inlet to the minichannel, experimental data as for Fig. 2
 Table1The difference between the heat transfer coefficient in the subcooled boiling region obtained by means of the non-continuous Trefftz method and the heat transfer coefficient obtained by means of the FEM with the Lagrange interpolation, the Hermite interpolation, the Beck method, respectively
+and presented in the Tables 1 and 2. The greatest differences between the values of the heat
 transfer coefficient calculated using the NCTM and those obtained with the other methods are observed at the start of the saturated nucleate boiling region. The results recorded for the first 33 % of the measurements are presented in Table 3.
+6The relative error of heat transfer coefficient determination
 Table2The difference between the heat transfer coefficient in the saturated nucleate boiling region obtained by means of the non-continuous Trefftz method and the heat transfer coefficient obtained by means of the FEM with the Lagrange interpolation, the Hermite interpolation, the Beck method, respectively
+The mean relative error of the heat transfer coefficient was determined by the following formula [27]:
+The term  (xk) denotes the absolute error at point of the heat transfer coefficient and has the form:
+ (xk ) 2 + (TF (xk ))2 + (Tl(xk ))2 + (dTF (xk ))2,
 Fig. 7a Local heat transfer coefficients in the subcooled boiling region obtained by the Beck method as a function of the distance from the inlet to the minichannel, experimental data as for Fig. 2.
 b Local heat transfer coefficients in the saturated nucleate boiling region obtained by the Beck method as a function of the distance from the inlet to the minichannel, experimental data as for Fig. 2
+corresponds to the error in the temperature measurement,
+x denotes the distance between the measuring points,
 x = 0.001 m. The Tables 4 and 5 present mean relative errors of the heat transfer coefficient calculated by means of the presented methods. Examples of the absolute errors of the local values of the heat transfer coefficient obtained with the non-continuous Trefftz method are shown in Fig. 8. The errors were established for these settings of heat fluxes where the highest relative average errors were reported (for # 1 in the subcooled boiling region and for # 9 in the saturated boiling region). The absolute errors of the heat transfer coefficient for the subcooled boiling region were similar over the whole analysed length of the minichannel. However, the distribution of the absolute errors obtained for the saturated boiling region was not uniform, with the
 Table3The differences between the heat transfer coefficient in the saturated nucleate boiling region obtained by means of the non-continuous Trefftz method and the heat transfer coefficient obtained by means of the FEM with the Lagrange interpolation, the Hermite interpolation, the Beck method, for the first 33 % of the measurements
 values being the highest at the beginning of the measurement interval.
 In the literature, there is hardly any data on two-phase flow in a system with asymmetrically heated rectangular minichannels. The conditions described by Ozer at al. [28] are the most similar to those analysed in this paper.
+The results obtained with the proposed two-dimensional calculation model (the non-continuous Trefftz method) were validated using two approaches:
 1. One involved applying the two-dimensional calculation model (the non-continuous Trefftz method) to determine the local values of the heat transfer coefficient on the basis of the experimental data provided in [28] concerning flow boiling heat transfer for a coolant liquid in an asymmetrically heated horizontal minichannel and comparing the results with those obtained by Ozer et al. [28] (see Fig. 9).
 2. The other approach consisted in comparing the results from the authors' experimental data, obtained using the two-dimensional method (the non-continuous Trefftz method) with the results determined by means of the one-dimensional method (see Fig. 10).
 The results presented in [28] refer to the subcooled boiling region; the local values of the heat transfer coefficient were calculated using the difference between the temperature of the heated surface and the average bulk temperature of the fluid. In Fig. 9 the curve denoted as "A" (results presented by Ozer at al. [28]) is very similar in shape and values to the curve denoted as "B" (results obtained with the noncontinuous Trefftz method on the basis of the experimental data provided in [28]).
 Figure 10 compares the local values of the heat transfer coefficient obtained from the authors' experimental data using the proposed two-dimensional calculation
+Table4The mean relative errors of the heat transfer coefficient  (%) in the subcooled boiling region
+Table5The mean relative errors of the heat transfer coefficient  (%) in the saturated nucleate boiling region
+21.3 19.79 21.07 16.26 15.69 14.35 15.95 16.54 15.53 11.46
+19.84 17.88 19.3 15.72 15.11 13.67 15.85 17.34 14.22
+20.2 18.17 19.56 15.94 15.28 13.83 16.09 18.05 17.08 12.87
+20.53 18.69 19.87 16.23 15.41 14.07 16.38 18.43 17.88 12.67
 Fig.9Local values of the heat transfer coefficient in the two-phase flow, presented in [28] (marked as A) compared with those calculated with the non-continuous Trefftz method on the basis of the experimental data presented in [28] (marked as B) as a function of the distance from the inlet to the minichannel; experimental data as in [28]
+Fig.8The absolute errors at points a calculated for # 1 in the subcooled boiling region, b calculated for # 9 in the saturated boiling region
 method, i.e. the non-continuous Trefftz method with the values determined by means of the one-dimensional calculation method. The experimental data refers to the saturated boiling region. Like the method described by Ozer at al. [28], the simplified one-dimensional method
 was based on Newton's Law for convective heat transfer. The local values of the heat transfer coefficient were calculated using the difference between the temperature of the heated surface and the liquid saturation temperature. The results obtained with the two methods are very similar.
 The one-dimensional calculation method proposed by Ozer et al. [28] provides results that are similar to those obtained with the one-dimensional method proposed by the authors in [19, 22, 23].
@@ -106,8 +171,22 @@ The heat transfer coefficient is the highest under the nucleate saturated boilin
 The presented calculation model and numerical results obtained by the authors were validated by comparing them with the literature data concerning a similar system with an asymmetrically-heated rectangular minichannel containing a boiling cooling liquid and with results determined using onedimensional method based on Newton's Law for convective heat transfer. The analysis showed that the values and distributions of the heat transfer coefficient were similar.
 AcknowledgmentsThe research has been financially supported by the Polish National Scientific Center Granted on the basis of decision No. DEC-2013/09/B/ST8/02825.
 Open Access This article is distributed under the terms of the Creative Commons Attribution 4.0 International License (http://creativecommons.org/licenses/by/4.0/), which permits unrestricted use, distribution, and reproduction in any medium, provided you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons license, and indicate if changes were made.
+1. Tikhonov AN, Arsenin VY (1977) Solution of ill-posed problems. Wiley, New York
+2. Beck JV, Blackwell B, Clair CRS (1985) Inverse heat conduction. Wiley, New York
+3. Alifanow OM (1994) Inverse heat transfer problems. Springer, Berlin
+4. Kurpisz K, Nowak AJ (1995) Inverse thermal problems. Computational Mechanics Publ, Southampton
+5. Ozisik MN, Orlande HRB (2000) Inverse heat transfer: fundamentals and applications. Taylor & Francis, New York
+6. Trefftz E (1926) Ein gegenstück zum ritzschen verfahren. In: 2 Int Kongress für Technische Mechanik, Zürich, pp 131­137
+7. Kita E (1995) Trefftz method: an overview. Adv Eng Softw 24:3­12
+8. Zielinski AP (1995) On trial functions applied in the generalized Trefftz method. Adv Eng Softw 24:147­155
+9. Herrera I (2000) Trefftz method: a general theory. Numer Methods Partial Differ Equ 16:561­580
 10. Hozejowska S, Hozejowski L (2012) The use of Trefftz functions for approximation of measurement data in an inverse problem of flow boiling in a minichannel, vol 25. In: EPJ web of conferences 2012, p 02007
+11. Cialkowski MJ, Frackowiak A (2002) Solution of the stationary 2D inverse heat conduction problem by Treffetz method. J Therm Sci 11:148­162
 12. Grysa K, Maciag A, Adamczyk-Krasa J (2014) Trefftz functions applied to direct and inverse non-Fourier heat conduction problems. J Heat Trans T ASME 136:091302-1­091302-9
+13. Qin QH (2000) The Trefftz finite and boundary element method. WIT Press, Southampton
+14. Grysa K, Maciejewska B (2013) Trefftz functions for the nonstationary problems. J Theor Appl Mech 51:251­264
+15. Blasiak S, Pawinska A (2015) Direct and inverse heat transfer in non-contacting face seals. Int J Heat Mass Transf 90:710­718
 16. Grysa K, Hozejowska S, Maciejewska B (2012) Adjustment calculus and Trefftz functions applied to local heat transfer coefficient determination in a minichannel. J Theor Appl Mech 50:1087­1096
 17. Piasecka M, Maciejewska B (2013) Enhanced heating surface application in a minichannel flow and use the FEM and Trefftz functions to the solution of inverse heat transfer problem. Exp Therm Fluid Sci 44:23­33
+18. Piasecka M, Maciejewska B (2012) The study of boiling heat transfer in vertically and horizontally oriented rectangular
 minichannels and the solution to the inverse heat transfer problem with the use of the Beck method and Trefftz functions. Exp Therm Fluid Sci 38:19­32 19. Piasecka M (2013) Heat transfer mechanism, pressure drop and flow patterns during FC-72 flow boiling in horizontal and vertical minichannels with enhanced walls. Int J Heat Mass Transf 66:472­488 20. Piasecka M (2013) An application of enhanced heating surface with mini-recesses for flow boiling research in minichannels. Heat Mass Transf 49:261­271 21. Piasecka M (2015) Impact of selected parameters on boiling heat transfer and pressure drop in minichannels. Int J Refrig 56:198­212 22. Piasecka M (2015) Correlations for flow boiling heat transfer in minichannels with various orientations. Int J Heat Mass Transf 81:114­121 23. Piasecka M, Strak K, Maciejewska B (2017) Calculations of flow boiling heat transfer in a minichannel based on liquid crystal and infrared thermography data. Heat Transf Eng 38(3). doi:1 0.1080/01457632.2016.1189272 24. Piasecka M (2014) Laser texturing, spark erosion and sanding of the surfaces and their practical applications in heat exchange devices. Adv Mater Res 874:95­100 25. Piasecka M (2013) Determination of the temperature field using liquid crystal thermography and analysis of two-phase flow structures in research on boiling heat transfer in a minichannel. Metrol Meas Syst 20:205­216 26. Hozejowska S, Piasecka M (2014) Equalizing calculus in Trefftz method for solving two-dimensional temperature field of FC-72 flowing along the minichannel. Heat Mass Transf 50:1053­1063 27. Hozejowska S, Piasecka M, Poniewski ME (2009) Boiling heat transfer in vertical minichannels: liquid crystal experiments and numerical investigations. Int J Therm Sci 48:1049­1059 28. Ozer AB, Oncel AF, Hollingsworth DK, Witte LC (2011) A method of concurrent thermographic­photographic visualization of flow boiling in a minichannel. Exp Therm Fluid Sci 35:1522­1529

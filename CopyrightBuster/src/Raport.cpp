@@ -3,57 +3,58 @@
 #include <fstream>
 #include <string>
 
+#define LINE_FRAGMENT_MIN 35
+
 Raport::Raport(const std::string& filepath)
+	: m_Count(0)
 {
 	std::ifstream file;
 	file.open(filepath.c_str());
 
-	std::string text;
-	std::string paragraph;
+	std::string rap;
 
-	while (std::getline(file, paragraph, '\t'))
+	while (std::getline(file, rap, '\t'))
 	{
-		m_Paragraphs.emplace_back(paragraph);
+		m_Text += rap;
 	}
-
-	unsigned int i = m_Paragraphs.size();
-
-	m_Count.reserve(i);
-
-	for (int j = 0; j < i; j++)
-		m_Count.emplace_back(0);
 
 	file.close();
+
+	int i = filepath.length();
+	for (; filepath[i] != '/'; i--);
+
+	m_Filename = filepath.substr(i + 1);
 }
 
-unsigned int Raport::getCount(unsigned int parNumber) const
+unsigned int Raport::getCount() const
 {
-	return m_Count[parNumber];
+	return m_Count;
 }
 
-unsigned int Raport::getNumOfParagraphs() const
+void Raport::resetCount()
 {
-	return m_Count.size();
+	m_Count = 0;
 }
 
-
-void Raport::search(const std::string & suspect)
+bool Raport::search(const std::string & suspect)
 {
-	int size = m_Paragraphs.size();
 
-	for (int i = 0; i < size; i++)
+	if ((m_Text.find(suspect)) != std::string::npos)
 	{
-		if ((m_Paragraphs[i].find(suspect)) != std::string::npos)
-		{
-			m_Count[i]++;
-		}
+		m_Count++;
+		return true;
 	}
-
-	return;
+	return false;
 }
 
 void Raport::compare(const std::string & filepath, unsigned int divider)
 {
+	if (!divider)
+	{
+		std::cerr << "Divider can't be zero";
+		return;
+	}
+
 	std::ifstream file;
 	file.open(filepath.c_str());
 
@@ -66,20 +67,60 @@ void Raport::compare(const std::string & filepath, unsigned int divider)
 	{
 		divider = originalDivider;
 
-		unsigned int charCount = line.size();
+		unsigned int charCount = line.length();
+
+		if (charCount < 10) 
+			continue;
+
+		if (charCount < LINE_FRAGMENT_MIN)
+		{
+			std::getline(file, lineFragment, '.');
+			line += lineFragment;
+			charCount = line.length();
+		}
+
 		unsigned int temp = charCount / divider;
 
-		while (temp < 25 && temp != charCount)
+		while (temp < LINE_FRAGMENT_MIN && temp != charCount)
 		{
 			divider--;
 			temp = charCount / divider;
 		}
 
-		for (int i = 0; i < divider; i++)
+		for (unsigned int offset = 0u; offset != charCount; )
 		{
-			lineFragment = line.substr(i * temp, (i + 1) * temp);
-			this->search(lineFragment);
+			unsigned int offsetBeggining = offset + 1;
+			offset += temp;
+
+			while (offset < charCount && line[offset] != ' ')
+				offset++;
+
+			if (offset > charCount || charCount - offset < LINE_FRAGMENT_MIN)
+				offset = charCount;
+
+			lineFragment = line.substr(offsetBeggining, offset - offsetBeggining);
+			if (this->search(lineFragment))
+			{
+				std::cout << "Number " << m_Count << ":   " << lineFragment << "\n";
+			}
 		}
 	}
 	file.close();
+}
+
+using namespace std::string_literals;
+
+void Raport::compareToAll(unsigned int divider)
+{
+	std::ifstream database("./Files/database.txt");
+	std::string filename;
+	while (getline(database, filename))
+	{
+		if (filename != m_Filename)
+		{
+			std::cout << "\nIn file " << filename << ":\n\n";
+			compare("./Files/"s + filename, divider);
+			resetCount();
+		}
+	}
 }

@@ -1,493 +1,102 @@
 Experimental Thermal and Fluid Science 68 (2015) 459­467
-Contents lists available at ScienceDirect
-Experimental Thermal and Fluid Science
-journal homepage: www.elsevier.com/locate/etfs
-
 Heat transfer coefficient during flow boiling in a minichannel at variable spatial orientation
-Magdalena Piasecka a,, Beata Maciejewska b
 a Kielce University of Technology, Faculty of Mechatronics and Machine Building, Chair of Mechanics, al. 1000-lecia P.P.7, 25-314, Poland b Kielce University of Technology, Faculty of Management and Computer Modelling, Chair of Computer Science and Applied Mathematics, al. 1000-lecia P.P.7, 25-314, Poland
-
-article info
 Article history: Received 19 November 2014 Received in revised form 20 May 2015 Accepted 21 May 2015 Available online 29 May 2015
 Keywords: Heat transfer Flow boiling Minichannel Enhanced heating wall Inverse boundary problem Trefftz functions Nodeless Trefftz method
-
-abstract
 The paper presents flow boiling heat transfer of FC-72 in 1 mm Â 40 mm Â 360 mm minichannel (depth Â width Â length) where foil with evenly distributed micro-recesses acts as a heating surface. The minichannel is set at various angles, i.e. 0°, 45°, 90°, 135° and 180° inclinations in relation to the horizontal plane. Due to liquid crystal thermography it is possible to determine the two dimensional temperature of the plain side of the foil. The one- and two-dimensional heat transfer approaches are proposed to calculate the heat transfer coefficient. In the two-dimensional approach the inverse problem in the heating wall is solved by the semi-analytical method based on Trefftz functions in subareas, abbreviated to the nodeless Trefftz method. Local values of heat transfer coefficient on the surface between the heating foil and boiling liquid were calculated on the basis of the third-kind boundary condition. It turned out that the orientation of the minichannel has a significant impact on heat transfer coefficient. The values of heat transfer coefficient were analyzed separately for the subcooled and saturated nucleate boiling regions. The highest values of the heat transfer coefficient were observed in the saturated boiling region ­ for the vertical minichannel, position 90° and in the subcooled boiling region ­ for the inclined minichannel, position 45° (although for the vertical minichannel, position 90° heat transfer coefficients were also high). The lowest values of the heat transfer coefficient for both regions of boiling were obtained for the horizontal minichannel, position 180° but for the subcooled boiling region very low heat transfer coefficients were obtained also for the inclined minichannel, position 135°. The same tendencies in the results were observed for the two applied methods. The polynomial smoothing of the results in the 2D method can affect the rounding values of heat transfer coefficient. The one-dimensional approach seems to be less sensitive to measurement errors.
 Ó 2015 Elsevier Inc. All rights reserved.
-
-1. Introduction
 There have been considerable changes in applications of flow boiling heat transfer through minichannels, resulting in new technological generations. Ongoing technical progress and IT revolution lead to increased power requirements, with simultaneous tendency for miniaturization of modern devices. Supply of energy and cooling electronic components force a constant increase in efficiency of applied thermal processes. The efforts to understand boiling phenomena in mini- and microchannels translate into numerous experimental measurements and theoretical data analyses. Apart from the provision of design guidances for cooling
  Corresponding author.
 E-mail addresses: tmpmj@tu.kielce.pl (M. Piasecka), beatam@tu.kielce.pl (B. Maciejewska).
 http://dx.doi.org/10.1016/j.expthermflusci.2015.05.005 0894-1777/Ó 2015 Elsevier Inc. All rights reserved.
-
 systems furnished with minichannel devices, the findings can be applied in thermostabilization and thermoregulation solutions.
 Due to the continued technological growth, methods allowing the intensification of the heat transfer are sought. Application of developed surface for cooling compact devices (e.g. microprocessors, highly integrated PCBs) or using it in power generation (e.g. in combined heat and power plants based on gaseous turbines) allows additional intensification of heat transfer. At the same time the heat transfer involving the application of small dimension channels enables meeting opposite requirements i.e. obtaining a potential large heat flux although the temperature difference between heating surface and saturated liquid is small, in heat exchange systems of a small size. Results obtained by the application of enhanced surfaces in flow boiling in micro- or mini spaces, are not so widely discussed in literature, but they are promising. A short review of relevant literature on flow boiling heat transfer in micro- or minichannels are presented below.
-
-460
-
 M. Piasecka, B. Maciejewska / Experimental Thermal and Fluid Science 68 (2015) 459­467
-
-Nomenclature
-
-A a G I L M P p qV
-T uðx; yÞ
-viðx; yÞ
-x; y r
-
 surface area (m2) linear combination coefficient mass flux (kg/(m2 s)) current supplied to the heating foil (A) minichannel length (m) number of Trefftz functions used for approximation number of temperature measurements pressure (N/m2) volumetric heat flux (capacity of internal heat source) (W/m3) temperature (K) particular solution of differential equation Trefftz functions spatial coordinates nabla
-
-Greek
-a
-DTsub
-
 heat transfer coefficient (W/(m2 K)) inlet liquid subcooling, (Tsat À Tf)inlet (K)
-
-DU
-
-the voltage drop across the foil (V)
-
-d
-
-thickness (m)
-
-k
-
-thermal conductivity (W/(m K))
-
-X
-
-domain
-
-Subscripts
-
-F
-
-foil
-
-f
-
-fluid
-
-G
-
-glass
-
-inlet at the inlet
-
-l
-
-liquid
-
-P
-
-the last temperature measurement
-
-p
-
-temperature measurement
-
-sat
-
-saturation
-
-Superscripts
-
-$
-
-referenced to function approximates
-
 Research described in [1] was conducted to investigate flow boiling in five parallel microchannels with structured reentrant cavities. The authors pointed out that the structured surface was shown to significantly reduce the boiling inception and to enhance the critical heat flux in relation to smooth channels. The effective heat flux for boiling incipience condition appeared 70% higher in the plain-wall channel than in the enhanced-surface channel for all mass velocities. Studies referred to [2] were aimed at investigating the use of fine metal wire mesh porous layers on the microchannel heating walls. According to the authors, nucleate boiling enhancement in the mesh channel was associated with the increase of nucleation sites the mesh introduced. Also the flow boiling heat transfer coefficient was higher in the mesh channels. In [3] flow boiling heat transfer characteristics in a small channel with or without a microporous coating (six types of coating) were investigated experimentally. The microporous coating selected as the optimum was reported to be able produce heat transfer coefficients 2.7 times the smooth surface value in subcooled flow boiling and 3 times in saturated flow boiling. An experimental investigation on flow boiling from sintered microporous coating surfaces was discussed in [4]. Three types of sintered porous microcoatings were used and a significant enhancement flow boiling heat transfer in minichannels was observed on all the surfaces. It was also reported that the application of the optimum coating increased heat transfer coefficients by 7­10 times compared with those of the uncoated surface. Experimental studies of enhanced flow boiling in a microchannel with copper nanowire coatings grown on the heated bottom surface, with deionized water as a coolant were presented in [5]. The application of the coatings was found to enhance single-phase heat transfer rate by up to 25%, whereas in the flow boiling regime, the enhancement was up to 56% with a pressure drop increase of 20% in the single-phase regime.
 Previous research studies focused on the phenomena accompanying boiling of the cooling liquid flowing in the minichannel with the enhanced heating surface [6­10]. The two-dimensional temperature distribution on the heating surface was measured due to liquid thermography. Direct observation of the behavior of fluid in the channel and analysis of recorded images allows complementing knowledge on forming two-phase flow structures and determination of the void fraction (liquid and vapor shares) in selected cross-section along the fluid flow in the channel. The
-
 two-phase flow pressure drop was also analyzed [8,9]. Two main types of enhanced surfaces were applied in the selected area or the whole area of the heating foil (from the side contacting the fluid in the minichannel). Technological processes of the production of enhanced surfaces discussed above were presented in detail in [11]. It was found that the intensification of heat transfer on enhanced surfaces is caused mainly by the increase of the number of nucleation centers. The analysis of measured errors and determined values, including errors in temperature measurement of the heating foil by liquid crystal thermography and the heat source efficiency measurement error were presented in [12,13]. Mathematical models describing the stationary process of oneand two-dimensional heat transfer in the glass pane and heating foil will be proposed in this paper and they were presented before i.a. in [6,13,14]. Both methods allowed solving the inverse problem of the heat transfer and gave similar results. Comparative research on enhanced heating surfaces in flow boiling in a minichannel and pool boiling was discussed in [15,16].
 The most important observation from the experiments was that incipience and development of boiling when the enhanced surface is applied occurs at significantly lower (up to 30%) heat flux supplied to the heating surface, in comparison to results obtained for a plain foil. Values of the local heat transfer coefficient have proved higher (the difference of the order of 10­80%, depending of the flow boiling regime) when results from the plain and enhanced heating surfaces were analyzed, although there was a low difference in the applied surface development (several per cent only). It was noticed that orientation of the minichannel has a huge impact on development of boiling in the minichannel and this issue will be discussed in the present paper.
-2. Experimental setup
 The experimental setup was presented in detail in [6,7,9,10,13]. The test section with a minichannel (1 mm deep, 40 mm wide and 360 mm long) oriented at various inclination angles, i.e. 0°, 45°, 90°, 135° and 180° inclinations in relation to the horizontal plane, is the most important part of the system, Fig. 1. The heating element for FC-72 flowing in the minichannel (1) is the foil (2) enhanced on one side, in the direct contact with the fluid flowing in the channel. It is possible to observe the channel surfaces
-
 M. Piasecka, B. Maciejewska / Experimental Thermal and Fluid Science 68 (2015) 459­467
-
-461
-
 foil results in an increased heat flux transferred to the fluid in the channel. This leads to the incipience and then to the development of nucleate boiling. Owing to the liquid crystal layer located on its surface contacting the glass it is possible to measure the temperature distribution on the heating wall. Flow structure is observed simultaneously in the opposite side of the minichannel. Uncertainty analyses including evaluation of the accuracy of heating foil temperature measurements with liquid crystals thermography was done in detail in [12,13,17]. Mean temperature measurement error of heating foil by liquid crystal thermography equal to 0.86 K was obtained. The value of the relative volumetric heat flux measurement error amounted to 3.53%.
-
-3.2. Experimental results
-
 Fig. 1. (a) The diagram of the test section (position 90°): 1 ­ minichannel, 2 ­ heating foil, 3 ­ liquid crystal layer, 4a,b ­ glass plate, 5 ­ channel body, 6 ­ front cover, 7 ­ thermocouple, 8 ­ enhanced side of the foil, 9 ­ copper element, 10 ­ digital camera, 11 ­ digital SLR camera and (b) the other positions of the minichannel.
 through two glass panes. One pane (4b) allows observing foil temperature changes in a liquid crystal layer deposited on the plain side of the foil (3). The other glass plane (4a) allows conducting two-phase flow visualization on the enhanced foil side (8). K-type thermocouples are installed at the inlet and outlet of the minichannel (7). The data and image acquisition system with digital cameras (10, 11), a data acquisition station, a computer with special software and lighting systems are essential parts of the research equipment. The flow loop consists of a test section, a rotary pump, a compensating tank, a heat exchanger, a filter, rotameters and a deaerator.
 Laser surface texturing was applied to obtain micro-recesses distributed uniformly on the foil surface. The micro-recesses, pro-
 duced by a laser device, are 10 lm in diameter, 3 lm deep and they are evenly distributed every 100 lm in both axes. A 7 lm high layer of melted metal, locally 5­10 lm high, accumulates annu-
 larly around the micro-recesses. Detailed information about the process producing enhanced surfaces were discussed in [6,11]. Photos and 3D topograhies of the enhanced foil with micro-recesses (c) are presented in Fig. 2.
-3. Experimental methodology and results
 3.1. Experimental methodology, the accuracy of main parameters
 Application of the liquid crystal thermography for the detection of two-dimensional heating surface temperature distribution must be preceded by color (hue) ­ temperature calibration and finally the calibration curve is obtained [12,13]. After deaeration of the main loop, working fluid (FC-72) flows laminarly along the minichannel. When the desired pressure and flow rate are reached, the gradual increase in the electric power supplied to the heating
-
 In Fig. 3 thermographs from the selected experimental series using the vertical minichannel, position 90°, are shown. When the current supplied to the heating foil increases gradually, it causes the occurrence of boiling incipience, subcooled boiling takes place in the channel. The ``boiling front'' is recognizable as the hue sequence pattern, which indicates a gradual hue changes to the liquid crystals (in accordance with the spectrum sequence) and then sharp hue changes in the liquid crystals (inversely to the spectrum sequence). Out-of-sensitivity-range temperatures are shown in black. The boiling incipience is identified with the maximum value of the heating surface temperature in the ``boiling front'' image. A sharp temperature drop follows further out. The ``boiling front'' moves in the direction opposite to the direction of the liquid flow in the channel as the heat flux supplied to the foil increases. This phenomenon of the occurrence of nucleation hysteresis was discussed also in [6­10,13]. When the heat flux continues to increase, the black hue is replaced with a new hue sequence in the upper parts of images. This occurs when developed nucleate boiling is in progress in the minichannel. It is accompanied by a pressure increase in the channel, flow fluctuations, sharp increase in the liquid temperature in the flow core and flow resistance fluctuations. Then, the current supplied to the foil is gradually reduced. Mild hue changes, in the direction opposite to the spectrum sequence, are observed to accompany the decrease of current supplied to the foil. As a result, heat transfer returns to the forced single phase convection. The part of the experiment when heat flux supplied to the heating surface are decreased will not be analyzed in the present paper. Two indicated regions of boiling, during increasing the heat flux, recognized on the basis of selected thermographs (marked as colored images in Fig. 2) are analyzed here:
  in the subcooled boiling region, where the temperature of the liquid in the core of the flow is below the saturation temperature, the difference between the temperature of the heating surface and the bulk temperature of the liquid is used in the calculations;
  in the saturated boiling region, where the temperature of the heating surface is higher than the saturation temperature (with the assumption that the temperature of the liquid in the core of
-
 Fig. 2. (a) and (c) Image (a) and 3D topography (c) of the enhanced sampled area with and micro-recesses; (b) and (d) image (b) and 3D topography (d) of a single microrecess.
-
-462
-
 M. Piasecka, B. Maciejewska / Experimental Thermal and Fluid Science 68 (2015) 459­467
-
-­ the subcooled boiling region:
-
-aðxÞ
-
-¼
-
-TF ðxÞ
-
-I À
-
-Á U=AF TlðxÞ À
-
-IÁU AF
-
-Á
-
-dF kF
-
-;
-
-ð1Þ
-
-­ the saturated boiling region:
-
-aðxÞ
-
-¼
-
-TF ðxÞ
-
-I Á U=AF À TsatðxÞ À
-
-IÁU AF
-
-Á
-
-dF kF
-
-;
-
-ð2Þ
-
 where I ­ current, DU ­ voltage drop, AF ­ foil area, kF ­ foil thermal conductivity, dF ­ foil thickness, TF ­ foil temperature, Tl ­ liquid temperature calculated with the assumption of linear temperature distribution of the fluid flowing along the minichannel, from the inlet to the outlet, Tsat ­ saturation temperature determined on the basis of the linear pressure distribution, from the inlet to the outlet.
-
 Fig. 3. Thermograms of the surface recorded while increasing and then decreasing
-
 the heat flux, data obtained for the vertical minichannel (position 90°), experi-
-
-mental
-
-parameters:
-
-qV = 9.93 Á 104­2.29 Á 105 W/m3,
-
-G = 211 kg/(m2 s),
-
 pinlet = 125 kPa, DTsub ­ 42 K; images selelcted for the calculation of the heat
-
 transfer coefficient over the whole region of: (a) single-phase forced convection and
-
 subcooled boiling and (b) saturated nucleate boiling and single-phase forced
-
 convection, are colored. (For interpretation of the references to colour in this figure
-
 legend, the reader is referred to the web version of this article.)
-
 the flow is equal to the saturation temperature), the value of the surface superheating defined as the difference between the temperature of the heating surface and the saturation temperature is used in the calculations.
-
 Data from five experiments conducted in various orientations of the test sections against the minichannel when it was oriented at various inclination angles, i.e. 0°, 45°, 90°, 135° and 180° as shown in Fig. 1. All experimental tests were carried out in similar thermal and flow conditions assumed for the same flow velocity and similar mass flux and inlet pressures, in the laminar flow regime. The data is obtained when heat flux supplied to the heating wall is increased. All measurements are recorded for the assumed heat flux supplied to the channel's heating surface, in stable thermal and flow conditions, thus the experimental results relate to the steady state (stationary condition). Separately, selected data for the subcooled boiling region (with boiling incipience) and saturated boiling region (with developed boiling) were assumed for each analyzed position of the minichannel. Two methods of local heat transfer coefficient determination are presented in the next chapter.
-
 4. Determination of the local heat transfer coefficient
-4.1. One-dimensional approach
 In this simple approach [8,15,18] the resulting heat transfer coefficient was determined by the equation for:
-
-4.2. Two-dimensional approach
-
 In the two-dimensional approach the heat transfer coefficient is calculated from the formula:
-
-aðxÞ
-
-¼
-
-ÀkF TeF ðx; dG
-
-e@ T F ðx;dGþdF Þ
-@y
-þ dF Þ À Tf ðxÞ
-
-;
-
-(
-
-TlðxÞ for the subcooled boiling region
-
-where Tf ðxÞ ¼
-
-; ð3Þ
-
-TsatðxÞ for the saturated boiling region
-
 where kF ; dF ; Tl; Tsat denote the same as in Eqs. (1) and (2), Tf ­ fluid temperature, dG is the glass pane thickness, TeF is the approximate of foil temperature obtained from the solution of the inverse heat conduction problem in the heating foil. The problem is described, as in [18], by the Poisson equation and the boundary conditions:
-
-r2 T F
-
-¼
-
-À
-
-qV kF
-
-for ðx; yÞ 2 XF ¼ fðx; yÞ 2 R2 : x1 < x < xP;
-
-dG < y < dG þ dF g;
-
-ð4Þ
-
-TF ðx; dGÞ ¼ TGðx; dGÞ for x1 < x < xP;
-
-ð5Þ
-
-kF
-
-@TF @y
-
-¼
-
-kG
-
-@TG @y
-
-on the boundary y ¼ dG
-
-for x1 < x < xP;
-
-ð6Þ
-
-TF ðx1; yÞ ¼ T1 for dG < y < dG þ dF ;
-
-ð7Þ
-
-TF ðxP; yÞ ¼ TP for dG < y < dG þ dF ;
-
-ð8Þ
-
-TF ðxp; dGÞ ¼ Tp for p ¼ 1; 2; . . . P;
-
-ð9Þ
-
 where x1 is the location of the primary temperature measurement on the boundary y ¼ dG; xP ­ location of the last temperature measurement, Tp ­value of temperature measurement, P ­ number of temperature measurements, kG ­ the thermal conductivity coefficient of the glass pane. The auxiliary temperature TG of the glass pane is obtained, similarly as in [18], by solution of the direct problem:
-
 r2TG ¼ 0 for ðx; yÞ 2 XG ¼ fðx; yÞ 2 R2 : 0 < x < L; 0 < y < dGg; ð10Þ
-
-@TG @y
-
-¼
-
-0
-
-on the boundary y ¼ 0
-
-for 0 < x < L;
-
-ð11Þ
-
-@TG @x
-
-¼
-
-0
-
-on the boundaries x ¼ 0;
-
-x¼L
-
-for 0 < y < dG;
-
-ð12Þ
-
 M. Piasecka, B. Maciejewska / Experimental Thermal and Fluid Science 68 (2015) 459­467
-
-463
-
-TGðxp; dGÞ ¼ Tp for p ¼ 1; 2; . . . P;
-
-ð13Þ 5. Results
-
 where L denotes the length of the glass pane.
 The problem Eqs. (4)­(9) is solved by means of the nodeless
 Trefftz method. The domain XF is divided into K subdomains XFj ¼ fðx; yÞ 2 R2 : xj 6 x 6 xjþ1; dG 6 y 6 dG þ dF g; j ¼ 1; 2; . . . ; K. In any of subdomains XFj the foil temperature is approximated by the formula:
-
-Te
-
-j F
-
-ðx;
-
-yÞ
-
-¼
-
-uðx;
-
-yÞ
-
-þ
-
-X M
-aij v i ðx;
-
-yÞ;
-
-i¼1
-
-ð14Þ
-
 where uðx; yÞ represents the particular solution of the
 non-homogeneous Eq. (4), viðx; yÞ are the Trefftz functions [19]
 which strictly satisfy Laplace's equation, aij ­ the linear combination coefficients. Unknown coefficients aij in Eq. (14) are calculated from the minimization of the functional that expresses the mean square error of the approximate solution on the boundary as well the difference of the approximate temperature and the normal derivatives of approximants on the borders of the neighboring subdomains.
 The temperature TeGðx; dGÞ is the result of the solution of the direct problem (Eqs. (10)­(13)). The temperature of the glass pane TGðx; yÞ, in the domain XG, can be obtained in the same way as the temperature of heating foil.
-
 Figs. 4­13 show the local values of the heat transfer coefficient solved by means of the one-and two-dimensional approaches for different positions of the minichannel, obtained for the subcooled boiling region (Figs. 4­8) and the saturated boiling region (Figs. 9­13) when heat flux supplied to the heating wall increases. Main experimental parametres are as follows: G = 211 kg/(m2 s), pinlet = 125 kPa, DTsub = 42 K. Heat flux densities for each selected setting are shown directly on the figures. Respective data for each analyzed position of the minichannels are shown for:
 ­ the subcooled boiling region:  the horizontal minichannel, position 0° ­ Fig. 4,  the inclined minichannel, position 45° ­ Fig. 5,  the vertical minichannel, position 90° ­ Fig. 6,  the inclined minichannel, position 135° ­ Fig. 7,  the horizontal minichannel, position 180° ­ Fig. 8. wherein figures marked as ``a'' refer to local heat transfer coefficient obtained from 1D approach and as ``b'' ­ from 2D approach;
 ­ the saturated boiling region:  the horizontal minichannel, position 0° ­ Fig. 9,  the inclined minichannel, position 45° ­ Fig. 10,
-
 Fig. 4. Heat transfer coefficient vs. the distance along the length of the minichannel for the consecutive single-phase forced convection and subcooled boiling regions, determined from the (a) one- and (b) two-dimensional models, for the horizontal minichannel (position 0°).
-
 Fig. 5. Heat transfer coefficient vs. the distance along the length of the minichannel for the consecutive single-phase forced convection and subcooled boiling regions, determined from the (a) one- and (b) two-dimensional models, for the inclined minichannel (position 45°).
-
-464
-
 M. Piasecka, B. Maciejewska / Experimental Thermal and Fluid Science 68 (2015) 459­467
-
  From the first settings (i.e. values of the heat flux) in the analyzed experimental series it is clear that when the heat flux supplied to the heating foil increases (Figs. 5­8); ­ first, single phase flow occurs and there is a decrease in the heat transfer coefficient; then, the incipience of nucleate boiling, observed as the `boiling front', is accompanied by the occurrence of `nucleation hysteresis' (marked in Fig. 5); ­ in the boiling incipience region, there is a sharp increase in the heat transfer coefficient but the values of the heat transfer coefficient are relatively low [6­10,13,17].
  From the next settings (Figs. 9­13) it is evident that: ­ the heat transfer coefficient drops rapidly in the saturated nucleate boiling regime; for higher volume fractions of the vapor phase in the two-phase flow during fully developed boiling, the heat transfer coefficient decreases steadily; the coefficient is many times lower at the outlet than at the inlet, where subcooled boiling is achieved [8]; ­ finally, for the last settings, when the heat flux supplied to the heating foil decreases, the heat transfer in the minichannel returns to single phase forced convection with low but relatively constant values of the local heat transfer coefficient.
-
 Fig. 6. Heat transfer coefficient vs. the distance along the length of the minichannel for the consecutive single-phase forced convection and subcooled boiling regions, determined from the (a) one- and (b) two-dimensional models, for the vertical minichannel (position 90°).
-
  the vertical minichannel, position 90° ­ Fig. 11,  the inclined minichannel, position 135° ­ Fig. 12,  the horizontal minichannel, position 180° ­ Fig. 13.
-
 In 2D approach, for approximation of the temperature of the
-
 glass pane and foil, 16 Trefftz functions defined by the following
-
-formulas
-
-were
-
-used
-
-[19]:
-
-v n ðx;
-
-yÞ
-
-¼
-
-P½2n
-k¼0
-
-ðÀ1Þk xnÀ2k y2k ð2kÞ!ðnÀ2kÞ!
-
-;
-
-v n ¼ 0; 1; . . . ; 7,
-
-mðx;
-
-yÞ
-
-¼
-
-P½m2À1
-k¼0
-
-, ðÀ1Þk xmÀ2kÀ1 y2kþ1
-ð2kþ1Þ!ðmÀ2kÀ1Þ!
-
-m ¼ 1; 2; . . . ; 8,
-
-as
-
-a
-
-particular
-
-solution
-
-of
-
 Eq.
-
-(4)
-
-uðx; yÞ
-
-¼
-
-À qV y2 2kF
-
-was
-
-accepted
-
 [18].
-
-6. Observations
 Experimental tests were carried out in similar thermal and flow conditions assumed for the development of nucleate boiling at various orientations of the test section with the minichannel enabling a comparative data analysis. It should be noted that the full shape of the curves shown in Figs. 5­13 could not be obtained because the temperature of the foil surface was outside the operating range of applied liquid crystals.
 The analysis of the relationships between the heat transfer coefficient and the length of the minichannel leads to the following conclusions.
-
 Fig. 7. Heat transfer coefficient vs. the distance along the length of the minichannel for the consecutive single-phase forced convection and subcooled boiling regions, determined from the (a) one- and (b) two-dimensional models, for the inclined minichannel (position 135°).
-
 M. Piasecka, B. Maciejewska / Experimental Thermal and Fluid Science 68 (2015) 459­467
-
-465
-
 Fig. 10. Heat transfer coefficient vs. the distance along the length of the minichannel for the consecutive saturated boiling and single-phase forced convection regions, determined from the (a) one- and (b) two-dimensional models, for the inclined minichannel (position 45°).
-
 Fig. 8. Heat transfer coefficient vs. the distance along the length of the minichannel for the consecutive single-phase forced convection and subcooled boiling regions, determined from the (a) one- and (b) two-dimensional models, for the horizontal minichannel (position 180°).
-
 Fig. 11. Heat transfer coefficient vs. the distance along the length of the minichannel for the consecutive saturated boiling and single-phase forced convection regions, determined from the (a) one- and (b) two-dimensional models, for the vertical minichannel (position 90°).
-
 Fig. 9. Heat transfer coefficient vs. the distance along the length of the minichannel for the consecutive saturated boiling and single-phase forced convection regions, determined from the (a) one- and (b) two-dimensional models, for the horizontal minichannel (position 0°).
 The highest values of the heat transfer coefficient in the subcooled boiling region were noticed for the inclined minichannel, position 45°, and for the vertical minichannel, position 90°, values
-
 Fig. 12. Heat transfer coefficient vs. the distance along the length of the minichannel for the consecutive saturated boiling and single-phase forced convection regions, determined from the (a) one- and (b) two-dimensional models, for the inclined minichannel (position 135°).
 were slightly lower. The lowest values of the heat transfer coefficient were obtained for the horizontal minichannel, position 180° and very low heat transfer coefficients were also noticed for the
-
-466
-
 M. Piasecka, B. Maciejewska / Experimental Thermal and Fluid Science 68 (2015) 459­467
-
 Fig. 13. Heat transfer coefficient vs. the distance along the length of the minichannel for the consecutive saturated boiling and single-phase forced convection regions, determined from the (a) one- and (b) two-dimensional models, for the horizontal minichannel (position 180°).
-
 Fig. 15. Heat transfer coefficient vs. the distance along the length of the minichannel for the consecutive saturated boiling and single-phase forced convection regions, determined from the one- and two-dimensional models, at the selected settings of the heat flux for each analyzed series with different orientations of the minichannel.
-
 Fig. 14. Heat transfer coefficient vs. the distance along the length of the minichannel for the consecutive single-phase forced convection and subcooled boiling regions, determined from the one- and two-dimensional models, at the selected settings of the heat flux for each analyzed series with different orientations of the minichannel.
 inclined minichannel, position 135°. It can be supposed for this region that the heat transfer coefficient drops when the angle formed by the orientation of the module and the horizontal plane within the range 45­180° increases.
 The comparative data analysis shows that the highest values of the heat transfer coefficient in the saturated boiling region were observed for the vertical minichannel, position 90°. In this region slightly lower values to mentioned above were obtained for the horizontal minichannel, position 0°, and for the inclined minichannel, position 135°. The lowest values of the heat transfer coefficient were obtained for the horizontal minichannel, position 180°. The heat transfer coefficient values for the inclined minichannel, position 45°, are considerably lower than the values obtained for the minichannel's vertical position, position 90°, for the horizontal minichannel, position 0° and for the inclined minichannel, position 135°. Additionally, it has been found that points in the region with the highest heat transfer coefficient values sometimes are very scarce, that is why the impact of the orientation of the minichannel on the coefficient values could not be correctly recognized properly. Experiments for minichannel's positions: 30°, 60°, 120° and 150° could be included to formulate more detailed conclusions.
 The analysis of the heat transfer coefficient charts calculated by two different methods (1D and 2D approaches), similar values of the transfer coefficient were found, and distributions of the heat transfer coefficients are of similar nature.
-
 Albeit, the same sets of the results were observed for the two applied calculation methods, those obtained in the 1D approach are often slightly higher than in the case of the 2D one (however, not for each minichannel's position). The polynomial smoothing of the results is applied in the 2D method which can affect the rounding and reducing values of heat transfer coefficient especially in those regions of the chart where there are few measurement points. In turn, the 1D approach seems to be less sensitive to measurement errors.
 The paper has been supplemented with two more figures presenting the heat transfer coefficient against the length of the minichannel obtained in each analyzed series (with different orientations of the minichannel) for one selected setting of the heat flux. One of the graphs compares the data recorded for subcooled boiling after single phase forced convection (Fig. 14), while the other displays the collective results for saturated boiling followed by single phase forced convection (Fig. 15).
 In order to compare experimental heat transfer coefficients to results of other authors, measurement series for three orientations of the channel with microstructured heating wall were selected: horizontal (positions 0° and 180°) and vertical (position 90°) [20]. It was found that most correlations enables the predicting of heat transfer coefficient within an acceptable error limit (±30%) only in the specific orientation of the minichannel. Own correlation, separately for subcooled and saturated flow boiling was also presented.
-7. Conclusions
 It was assumed that orientation of the minichannel has a huge impact on development of flow boiling and the heat transfer coefficient values, both for the subcooled boiling and the saturated boiling regions.
 For the saturated boiling region the highest values of the heat transfer coefficient were observed for the vertical minichannel, position 90°. For the subcooled boiling region the highest values of the heat transfer coefficient were observed for the inclined minichannel, position 45°, although for the vertical minichannel, position 90°, heat transfer coefficients were also high. The lowest values of the heat transfer coefficient for the subcooled and saturated boiling regions was noticed for the horizontal minichannel, position 180° and for the subcooled boiling region very low heat transfer coefficient was also obtained for the inclined minichannel, position 135°.
-
 M. Piasecka, B. Maciejewska / Experimental Thermal and Fluid Science 68 (2015) 459­467
-
-467
-
 Similar values and distributions of the heat transfer coefficient were obtained from 1D and 2D mathematical approaches. It should be underlined that the polynomial smoothing of the results in the 2D approach can affect the rounding values. In turn 1D approach seems to be less sensitive to measurement errors.
-Acknowledgment
 The research reported herein was supported by a grant from the National Science Centre (No. DEC-2013/09/B/ST8/02825).
-References
 [1] C.-J. Kuo, Y. Peles, Local measurement of flow boiling in structured surface microchannels, Int. J. Heat Mass Transfer 50 (2007) 4513­4526.
 [2] H. Wang, R.B. Peterson, Enhanced boiling heat transfer in parallel microchannels with diffusion brazed wire mesh, IEEE Trans. Compon. Pack. Technol. 33 (2010) 784­793.
 [3] C.N. Ammerman, S.M. You, Enhancing small-channel convective boiling performance using a microporous surface coating, J. Heat Transfer 123 (2001) 976­983.
@@ -495,7 +104,6 @@ References
 [5] A.K.M.M. Morshed, F. Yang, M.Y. Ali, J.A. Khan, Ch. Li, Enhanced flow boiling in a microchannel with integration of nanowires, Appl. Therm. Eng. 32 (2012) 68­75.
 [6] M. Piasecka, B. Maciejewska, Enhanced heating surface application in a minichannel flow and use the FEM and Trefftz functions to the solution of inverse heat transfer problem, Exp. Therm. Fluid Sci. 44 (2013) 23­33.
 [7] M. Piasecka, An application of enhanced heating surface with mini-reentrant cavities for flow boiling research in minichannels, Heat Mass Transfer 49 (2013) 261­271.
-
 [8] M. Piasecka, Heat transfer mechanism, pressure drop and flow patterns during FC-72 flow boiling in horizontal and vertical minichannels with enhanced walls, Int. J. Heat Mass Transfer 66 (2013) 472­488.
 [9] M. Piasecka, The use of enhanced surface in flow boiling heat transfer in a rectangular minichannels, Exp. Heat Transfer 27 (2014) 231­255.
 [10] M. Piasecka, Flow boiling heat transfer in a minichannel with enhanced heating surface, Heat Transfer Eng. 35 (2014) 903­912.
@@ -509,5 +117,3 @@ References
 [18] S. Hozejowska, M. Piasecka, M.E. Poniewski, Boiling heat transfer in vertical minichannels. Liquid crystal experiments and numerical investigations, Int. J. Therm. Sci. 48 (2009) 1049­1059.
 [19] M.J. Cialkowski, A. Fra ckowiak, Solution of a stationary 2D inverse heat conduction problem by Trefftz method, J. Therm. Sci. 11 (2002) 148­162.
 [20] M. Piasecka, Correlations for flow boiling heat transfer in minichannels with various orientations, Int. J. Heat Mass Transfer 81 (2015) 114­121.
-
-

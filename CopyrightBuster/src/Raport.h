@@ -7,16 +7,18 @@
 class Raport
 {
 private:
-	std::vector<std::string> m_Paragraphs;
-	std::vector<unsigned int> m_Count;
+	std::string m_Text;
+	std::string m_Filename;
+	unsigned int m_Count;
 
 public:
 	Raport(const std::string& filepath);
 
-	unsigned int getCount(unsigned int parNumber) const;
-	unsigned int getNumOfParagraphs() const;
+	unsigned int getCount() const;
+	void resetCount();
 
-	void search(const std::string& suspect);
+	bool search(const std::string& suspect);
 	void compare(const std::string& filepath, unsigned int divider = 1);
+	void compareToAll(unsigned int divider = 1);
 };
 

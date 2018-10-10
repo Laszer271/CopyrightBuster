@@ -40,10 +40,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Files\File2.txt" />
-    <Text Include="Files\Files.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="pdftotext.exe" />
   </ItemGroup>
 </Project>
