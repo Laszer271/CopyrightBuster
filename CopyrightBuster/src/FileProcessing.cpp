@@ -14,8 +14,16 @@ bool convertToTxt(const std::string & filepath, const std::string & flags, const
 
 	std::string path = destinationPath.substr(0, i);
 	std::string filename = destinationPath.substr(i+1);
-	std::ofstream database("./Files/database.txt", std::ofstream::out | std::ofstream::app);
-	database << filename << "\n";
+	std::fstream database("./Files/database.txt", std::fstream::in | std::fstream::out | std::fstream::app);
+	
+	std::string line;
+	std::string temp;
+	while (std::getline(database, line))
+	{
+		temp += line;
+	}
+	if(temp.find(filename) == std::string::npos)
+		database << filename << "\n";
 
 	struct stat info;
 	if (stat(path.c_str(), &info) != 0)
