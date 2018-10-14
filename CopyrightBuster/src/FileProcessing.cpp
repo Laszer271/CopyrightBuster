@@ -9,25 +9,31 @@ using namespace std::string_literals;
 
 bool convertToTxt(const std::string & filepath, const std::string & flags, const std::string & destinationPath)
 {
+
 	unsigned int i = destinationPath.length();
 	for (; destinationPath[i] != '/'; i--);
 
 	std::string path = destinationPath.substr(0, i);
 	std::string filename = destinationPath.substr(i+1);
+
+	struct stat info;
+	if (stat(path.c_str(), &info))
+		CreateDirectory(path.c_str(), NULL);
+
 	std::fstream database("./Files/database.txt", std::fstream::in | std::fstream::out | std::fstream::app);
-	
+
 	std::string line;
 	std::string temp;
 	while (std::getline(database, line))
 	{
 		temp += line;
 	}
-	if(temp.find(filename) == std::string::npos)
+	database.clear();
+
+	if (temp.find(filename) == std::string::npos)
 		database << filename << "\n";
 
-	struct stat info;
-	if (stat(path.c_str(), &info) != 0)
-		CreateDirectory(path.c_str(), NULL);
+	database.close();
 
 	std::string command = "pdftotext "s +  flags + " "s + filepath + " "s + destinationPath;
 	system(command.c_str());
@@ -37,7 +43,6 @@ bool convertToTxt(const std::string & filepath, const std::string & flags, const
 	struct stat buffer;
 	return (stat(destinationPath.c_str(), &buffer) == 0);
 
-	database.close();
 }
 
 void processText(const std::string& filepath)
