@@ -18,6 +18,9 @@ void menu()
 	while (std::getline(std::cin, command))
 	{
 		std::string arguments[3];
+		for (int i = 0; i < 3; i++)
+			arguments[i].clear();
+
 		std::string commandname = command.substr(0, command.find(" "));
 		command.erase(0, commandname.length() + 1);
 		for (int i = 0; command.length() > 0 && i < 3; i++)
@@ -39,13 +42,13 @@ void menu()
 		else if (commandname == "remove")
 			removeFile(arguments[0]);
 		else if (commandname == "import")
-			import(arguments[0]);
+			import(arguments[0]); //import("C:/Users/Lasze/Downloads/Regulamin_DS.pdf");
 		else if (commandname == "rename")
 			changeFilename(arguments[0], arguments[1]);
 		else if (commandname == "delete")
 			removeFile(arguments[0]);
 		else if (commandname == "compare")
-			compare(arguments[0], arguments[1], arguments[2][0]);
+			compare(arguments[0], arguments[1], arguments[2]);
 		else if (commandname == "quit" || commandname == "exit" || commandname == "q")
 			return;
 		else
@@ -57,8 +60,8 @@ void menu()
 
 void help()
 {
-	std::cout << "Commands:\n\n"
-		"help [command] - shows help for specified command\n\n" <<
+	std::cout << "Commands:\n\n" <<
+		//"help [command] - shows help for specified command\n\n" <<
 		"filelist - shows what files are in database\n\n" <<
 		"delete [filename] - deletes specified file from database\n\n" <<
 		"import [filepath] - imports specified file to database\n\n" <<
@@ -67,19 +70,19 @@ void help()
 		"compare [file1] all - compares file1 with all files from database and prints results to the console\n\n" <<
 		"compare [filepath] [file] - compares file from filepath with file and prints results to the console\n\n" <<
 		"compare [filepath] all - compares file from filepath with all files from database\nand prints results to the console\n\n" <<
-		"compare [filepath1] [filepath2] - compares file from filepath1 with file from filepath2\nand prints results to the console\n\n" <<
-		"save [specified compare...] - compares files from given compare's parameters\nand gives a txt file with the results of comparison to the user\n\n" <<
-		"set_accuracy [acc] - sets accuracy as acc\n\n" <<
-		"save_as [filepath] [specified compare...] - compares files from given compare's parameters\nand and creates a txt file at the specified path with the results of comparison to the user\n\n" <<
+		//"compare [filepath1] [filepath2] - compares file from filepath1 with file from filepath2\nand prints results to the console\n\n" <<
+		//"save [specified compare...] - compares files from given compare's parameters\nand gives a txt file with the results of comparison to the user\n\n" <<
+		//"set_accuracy [acc] - sets accuracy as acc\n\n" <<
+		//"save_as [filepath] [specified compare...] - compares files from given compare's parameters\nand and creates a txt file at the specified path with the results of comparison to the user\n\n" <<
 		"exit - exits the program\n\n" <<
 		"quit - exits the program\n\n" <<
 		"q - exits the program\n\n" << std::endl;
 }
 
-void help(const std::string command)
-{
+//void help(const std::string command)
+//{
 
-}
+//}
 
 void filelist()
 {
@@ -98,6 +101,12 @@ void filelist()
 
 bool removeFile(const std::string filename)
 {
+	if (filename.empty())
+	{
+		std::cout << "You have to specify name of the file you want to remove\n\n";
+		return false;
+	}
+
 	if (filename == "database.txt"s)
 	{
 		std::cout << "You can't detele database!\n\n";
@@ -115,13 +124,19 @@ bool removeFile(const std::string filename)
 
 bool import(const std::string filepath)
 {
+	if (filepath.empty())
+	{
+		std::cout << "You have to specify path of the file you want to import\n\n";
+		return false;
+	}
+
 	int i = filepath.length();
 	for (; filepath[i] != '.' && i > 0; i--);
 	std::string extension = filepath.substr(i + 1);
 
 	i = filepath.length();
 	for (; filepath[i] != '/' && i > 0; i--);
-	std::string filename = filepath.substr(i + 1);
+	std::string filename = filepath.substr(i + 1, filepath.substr(i+2).length() - extension.length());
 
 	if (extension == "pdf"s)
 		return convertToTxt(filepath, ""s, "./Files/"s + filename);
@@ -136,7 +151,7 @@ bool import(const std::string filepath)
 		processedFile.close();
 
 		struct stat buffer;
-		if (!stat(destinationPath.c_str(), &buffer))
+		if (stat(destinationPath.c_str(), &buffer))
 		{
 			processText(destinationPath);
 			return true;
@@ -144,7 +159,7 @@ bool import(const std::string filepath)
 	}
 	else
 	{
-		std::cout << "Program can't handle the file extension: " << extension << '\n';
+		std::cout << "Program can't handle the file extension \n\n";
 		return false;
 	}	
 
@@ -153,8 +168,23 @@ bool import(const std::string filepath)
 
 bool changeFilename(const std::string filename, const std::string name)
 {
+	if (filename.empty())
+	{
+		std::cout << "You have to specify name of the file you want to rename\n\n";
+		return false;
+	}
+	if (name.empty())
+	{
+		std::cout << "You have to specify name you want the file to have\n\n";
+		return false;
+	}
+
 	std::ifstream file("./Files/database.txt");
 	std::string line;
+
+	struct stat buffer;
+	if (stat("./Files/database.txt", &buffer))
+		return false;
 
 	if (name == "database.txt")
 	{
@@ -181,12 +211,16 @@ bool changeFilename(const std::string filename, const std::string name)
 		file.close();
 		return false;
 	}
+	file.close();
 	
 	removeFromDatabase(filename);
 	std::ofstream database("./Files/database.txt", std::fstream::out | std::fstream::app);
 	database << name << '\n';
 
 	database.close();
+
+	rename(("./Files/"s + filename).c_str(), ("./Files/"s + name).c_str());
+
 	return true;
 }
 
@@ -211,7 +245,7 @@ bool changeFilename(unsigned int which, const std::string name)
 bool removeFromDatabase(const std::string& filename) 
 {
 	struct stat buffer;
-	if (!stat("./Files/database.txt", &buffer))
+	if (stat("./Files/database.txt", &buffer))
 		return false;
 
 	rename("./Files/database.txt", "./Files/databaseTemp");
@@ -231,8 +265,36 @@ bool removeFromDatabase(const std::string& filename)
 	return true;
 }
 
-bool compare(const std::string& arg1, const std::string& arg2, unsigned int accuracy)
+bool compare(const std::string& arg1, const std::string& arg2, const std::string& accuracy)
 {
+	if(arg1.empty() || arg2.empty())
+	{
+		std::cout << "You have to specify the name of the files you want to compare\n\n";
+		return false;
+	}
+
+	unsigned int acc = 0;
+	if (accuracy.empty())
+	{
+		acc = 1u;
+	}
+	else
+	{
+		unsigned int len = accuracy.length();
+		if (len > 2)
+		{
+			std::cout << "To much accuracy!\n\n";
+			return false;
+		}
+		unsigned int decPlace = 1;
+		for (int i = len - 1; i >= 0; i--)
+		{
+			acc += ((unsigned int)accuracy[i] - 48) * decPlace;
+			decPlace *= 10;
+		}
+	}
+
+
 	std::string filename1, filename2;
 	int i = filename1.length();
 	for (; arg1[i] != '/' && i > -1; i--);
@@ -250,9 +312,9 @@ bool compare(const std::string& arg1, const std::string& arg2, unsigned int accu
 
 			Raport rap("./Files/"s + filename1);
 			if (arg2 == "all")
-				rap.compareToAll(accuracy);
+				rap.compareToAll(acc);
 			else
-				rap.compare("./Files/"s + arg2 , accuracy);
+				rap.compare("./Files/"s + arg2 , acc);
 
 			removeFile(filename1);
 			return true;
@@ -261,9 +323,9 @@ bool compare(const std::string& arg1, const std::string& arg2, unsigned int accu
 
 	Raport rap("./Files/"s + arg1);
 	if (arg2 == "all")
-		rap.compareToAll(accuracy);
+		rap.compareToAll(acc);
 	else
-		rap.compare("./Files/"s + arg2, accuracy);
+		rap.compare("./Files/"s + arg2, acc);
 	return true;
 }
 

@@ -9,6 +9,12 @@ using namespace std::string_literals;
 
 bool convertToTxt(const std::string & filepath, const std::string & flags, const std::string & destinationPath)
 {
+	struct stat info;
+	if (stat(filepath.c_str(), &info))
+	{
+		std::cout << "Can't open file " << filepath << "\n\n";
+		return false;
+	}
 
 	unsigned int i = destinationPath.length();
 	for (; destinationPath[i] != '/'; i--);
@@ -16,11 +22,11 @@ bool convertToTxt(const std::string & filepath, const std::string & flags, const
 	std::string path = destinationPath.substr(0, i);
 	std::string filename = destinationPath.substr(i+1);
 
-	struct stat info;
 	if (stat(path.c_str(), &info))
 		CreateDirectory(path.c_str(), NULL);
 
-	std::fstream database("./Files/database.txt", std::fstream::in | std::fstream::out | std::fstream::app);
+	std::fstream database("./Files/database.txt", std::fstream::in | std::fstream::out |
+			std::fstream::app);
 
 	std::string line;
 	std::string temp;
@@ -35,13 +41,13 @@ bool convertToTxt(const std::string & filepath, const std::string & flags, const
 
 	database.close();
 
-	std::string command = "pdftotext "s +  flags + " "s + filepath + " "s + destinationPath;
+	std::string command = "Vendor\\pdftotext "s +  flags + " "s + filepath + " "s + destinationPath;
 	system(command.c_str());
 
 	processText(destinationPath);
 
 	struct stat buffer;
-	return (stat(destinationPath.c_str(), &buffer) == 0);
+	return (!stat(destinationPath.c_str(), &buffer));
 
 }
 
